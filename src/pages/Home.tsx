@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 
 import {
   Activity,
@@ -14,9 +14,62 @@ import {
   Sparkles,
   Stethoscope,
 } from 'lucide-react';
+
 import { Link } from 'react-router-dom';
 
+/* =========================================================
+   HERO CARD CURSOR PARALLAX
+========================================================= */
+
+function useCardParallax() {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [transform, setTransform] = useState('');
+
+  useEffect(() => {
+    const card = cardRef.current;
+
+    if (!card) return;
+
+    const handleMouseMove = (event: MouseEvent) => {
+      const rect = card.getBoundingClientRect();
+
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+
+      const rotateY = ((x / rect.width) - 0.5) * 8;
+      const rotateX = ((y / rect.height) - 0.5) * -8;
+
+      setTransform(
+        `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.015)`
+      );
+    };
+
+    const handleMouseLeave = () => {
+      setTransform(
+        'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)'
+      );
+    };
+
+    card.addEventListener('mousemove', handleMouseMove);
+    card.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      card.removeEventListener('mousemove', handleMouseMove);
+      card.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, []);
+
+  return { cardRef, transform };
+}
+
+
+/* =========================================================
+   HOME PAGE
+========================================================= */
+
 function Home() {
+  const { cardRef, transform } = useCardParallax();
+
   return (
     <div className="min-h-screen bg-[var(--background)] text-[var(--text-primary)]">
 
@@ -27,56 +80,78 @@ function Home() {
       <section className="relative overflow-hidden">
 
         {/* Background decoration */}
+
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
+
           <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-[var(--primary)]/10 blur-3xl" />
+
           <div className="absolute -left-40 bottom-0 h-80 w-80 rounded-full bg-[var(--maroon)]/10 blur-3xl" />
+
         </div>
 
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-5 pb-20 pt-16 sm:px-8 lg:grid-cols-2 lg:px-10 lg:pb-28 lg:pt-24">
 
-          {/* Hero Content */}
+
+          {/* =====================================================
+              HERO CONTENT
+          ===================================================== */}
+
           <div>
 
             {/* Badge */}
+
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-xs font-semibold tracking-wider text-[var(--primary)]">
+
               <Sparkles size={14} />
+
               AI-POWERED CARDIAC RISK ANALYSIS
+
             </div>
 
 
             {/* Heading */}
+
             <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
 
               Understand Your Heart.
+
               <span className="block text-[var(--primary)]">
+
                 Predict the Risk.
+
               </span>
 
             </h1>
 
 
             {/* Description */}
+
             <p className="mt-6 max-w-xl text-base leading-7 text-[var(--text-secondary)] sm:text-lg">
+
               CardioPredict-AI uses machine learning to analyze
               cardiac health parameters and generate an
               AI-powered risk prediction.
+
             </p>
 
 
             {/* Buttons */}
+
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
 
               <Link
                 to="/login"
                 className="group inline-flex items-center justify-center gap-2 rounded-lg bg-[var(--primary)] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[var(--primary-hover)]"
               >
+
                 Start Prediction
 
                 <ArrowRight
                   size={18}
                   className="transition-transform group-hover:translate-x-1"
                 />
+
               </Link>
 
 
@@ -84,30 +159,41 @@ function Home() {
                 to="/about"
                 className="inline-flex items-center justify-center gap-2 rounded-lg border border-[var(--border)] bg-[var(--surface)] px-6 py-3.5 text-sm font-semibold transition hover:border-[var(--primary)] hover:text-[var(--primary)]"
               >
+
                 Learn More
+
                 <ChevronRight size={17} />
+
               </Link>
 
             </div>
 
 
             {/* Small reassurance */}
+
             <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-xs text-[var(--text-muted)]">
 
               <span className="flex items-center gap-2">
+
                 <CheckCircle2
                   size={15}
                   className="text-[var(--primary)]"
                 />
+
                 Data-driven analysis
+
               </span>
 
+
               <span className="flex items-center gap-2">
+
                 <ShieldCheck
                   size={15}
                   className="text-[var(--primary)]"
                 />
+
                 Secure dashboard
+
               </span>
 
             </div>
@@ -115,16 +201,38 @@ function Home() {
           </div>
 
 
-          {/* Hero Visual */}
+          {/* =====================================================
+              HERO VISUAL
+          ===================================================== */}
+
           <div className="relative mx-auto w-full max-w-lg">
 
-            {/* Main card */}
-            <div className="relative overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-2xl sm:p-8">
+
+            {/* =================================================
+                MAIN CARD
+            ================================================= */}
+
+            <div
+              ref={cardRef}
+              style={{
+                transform,
+                transition: 'transform 180ms ease-out',
+                transformStyle: 'preserve-3d',
+              }}
+              className="relative overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-2xl sm:p-8"
+            >
+
+              {/* Soft glow */}
+
+              <div className="pointer-events-none absolute -right-20 -top-20 h-48 w-48 rounded-full bg-[var(--primary)]/5 blur-3xl" />
+
 
               {/* Top */}
-              <div className="flex items-center justify-between">
+
+              <div className="relative z-10 flex items-center justify-between">
 
                 <div>
+
                   <p className="text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">
                     Cardiac Analysis
                   </p>
@@ -132,34 +240,54 @@ function Home() {
                   <p className="mt-1 text-lg font-bold">
                     AI Health Monitor
                   </p>
+
                 </div>
 
+
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--primary)]/10 text-[var(--primary)]">
+
                   <HeartPulse size={23} />
+
                 </div>
 
               </div>
 
 
-              {/* Heart visual */}
+              {/* =================================================
+                  HEARTBEAT VISUAL
+              ================================================= */}
+
               <div className="relative my-10 flex items-center justify-center">
 
-                <div className="absolute h-44 w-44 rounded-full border border-[var(--primary)]/20" />
+                {/* Outer heartbeat ring */}
 
-                <div className="absolute h-32 w-32 rounded-full border border-[var(--primary)]/20" />
+                <div className="heartbeat-ring heartbeat-ring-outer absolute h-44 w-44 rounded-full border border-[var(--primary)]/20" />
 
-                <div className="flex h-24 w-24 items-center justify-center rounded-full bg-[var(--primary)]/10 text-[var(--primary)]">
+
+                {/* Inner heartbeat ring */}
+
+                <div className="heartbeat-ring heartbeat-ring-inner absolute h-32 w-32 rounded-full border border-[var(--primary)]/20" />
+
+
+                {/* Heart */}
+
+                <div className="heartbeat-heart relative z-10 flex h-24 w-24 items-center justify-center rounded-full bg-[var(--primary)]/10 text-[var(--primary)]">
+
                   <HeartPulse
                     size={52}
                     strokeWidth={1.5}
                   />
+
                 </div>
 
               </div>
 
 
-              {/* ECG */}
-              <div className="rounded-xl border border-[var(--border)] bg-[var(--background)] p-4">
+              {/* =================================================
+                  ECG SIGNAL
+              ================================================= */}
+
+              <div className="relative overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--background)] p-4">
 
                 <div className="mb-3 flex items-center justify-between">
 
@@ -167,39 +295,80 @@ function Home() {
                     ECG SIGNAL
                   </span>
 
+
                   <span className="flex items-center gap-1.5 text-xs font-medium text-[var(--primary)]">
+
                     <span className="h-2 w-2 animate-pulse rounded-full bg-[var(--primary)]" />
+
                     Monitoring
+
                   </span>
 
                 </div>
 
 
-                <div className="flex h-14 items-center overflow-hidden">
+                {/* ECG animation window */}
 
-                  <svg
-                    viewBox="0 0 500 80"
-                    className="h-full w-full"
-                    preserveAspectRatio="none"
-                  >
-                    <path
-                      d="M0 40 H70 L82 40 L92 15 L104 65 L116 40 H175 L187 40 L198 22 L209 58 L220 40 H285 L297 40 L308 12 L320 68 L332 40 H390 L402 40 L413 25 L424 55 L435 40 H500"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="3"
-                      className="text-[var(--primary)]"
-                    />
-                  </svg>
+                <div className="ecg-window flex h-14 items-center">
+
+                  <div className="ecg-track">
+
+
+                    {/* ECG signal 1 */}
+
+                    <svg
+                      viewBox="0 0 500 80"
+                      className="ecg-line h-full w-[500px] shrink-0"
+                      preserveAspectRatio="none"
+                    >
+
+                      <path
+                        d="M0 40 H70 L82 40 L92 15 L104 65 L116 40 H175 L187 40 L198 22 L209 58 L220 40 H285 L297 40 L308 12 L320 68 L332 40 H390 L402 40 L413 25 L424 55 L435 40 H500"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                        className="text-[var(--primary)]"
+                      />
+
+                    </svg>
+
+
+                    {/* ECG signal 2 for seamless loop */}
+
+                    <svg
+                      viewBox="0 0 500 80"
+                      className="ecg-line h-full w-[500px] shrink-0"
+                      preserveAspectRatio="none"
+                    >
+
+                      <path
+                        d="M0 40 H70 L82 40 L92 15 L104 65 L116 40 H175 L187 40 L198 22 L209 58 L220 40 H285 L297 40 L308 12 L320 68 L332 40 H390 L402 40 L413 25 L424 55 L435 40 H500"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                        className="text-[var(--primary)]"
+                      />
+
+                    </svg>
+
+                  </div>
 
                 </div>
 
               </div>
 
 
-              {/* Bottom stats */}
+              {/* =================================================
+                  BOTTOM STATS
+              ================================================= */}
+
               <div className="mt-4 grid grid-cols-2 gap-3">
 
+
+                {/* Parameters */}
+
                 <div className="rounded-xl border border-[var(--border)] p-4">
+
                   <p className="text-xs text-[var(--text-muted)]">
                     Parameters
                   </p>
@@ -207,10 +376,14 @@ function Home() {
                   <p className="mt-1 text-xl font-bold">
                     11
                   </p>
+
                 </div>
 
 
+                {/* AI Analysis */}
+
                 <div className="rounded-xl border border-[var(--border)] p-4">
+
                   <p className="text-xs text-[var(--text-muted)]">
                     AI Analysis
                   </p>
@@ -218,6 +391,7 @@ function Home() {
                   <p className="mt-1 text-xl font-bold text-[var(--primary)]">
                     Ready
                   </p>
+
                 </div>
 
               </div>
@@ -225,16 +399,23 @@ function Home() {
             </div>
 
 
-            {/* Floating card */}
-            <div className="absolute -bottom-5 -left-4 hidden rounded-xl border border-[var(--border)] bg-[var(--surface)] p-4 shadow-xl sm:block">
+            {/* =================================================
+                FLOATING PREDICTION ENGINE
+            ================================================= */}
+
+            <div className="prediction-engine absolute -bottom-5 -left-4 hidden rounded-xl border border-[var(--border)] bg-[var(--surface)] p-4 shadow-xl sm:block">
 
               <div className="flex items-center gap-3">
 
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--primary)]/10 text-[var(--primary)]">
+
                   <BrainCircuit size={20} />
+
                 </div>
 
+
                 <div>
+
                   <p className="text-xs text-[var(--text-muted)]">
                     Prediction Engine
                   </p>
@@ -242,6 +423,7 @@ function Home() {
                   <p className="text-sm font-semibold">
                     Machine Learning
                   </p>
+
                 </div>
 
               </div>
@@ -300,7 +482,9 @@ function Home() {
 
         <div className="grid items-center gap-12 lg:grid-cols-2">
 
+
           {/* Visual */}
+
           <div className="relative">
 
             <div className="overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-8">
@@ -311,8 +495,13 @@ function Home() {
 
                   <div className="absolute h-40 w-40 rounded-full border border-[var(--primary)]/20" />
 
-                  <div className="flex h-28 w-28 items-center justify-center rounded-full bg-[var(--primary)]/10 text-[var(--primary)]">
-                    <Stethoscope size={55} strokeWidth={1.4} />
+                  <div className="stethoscope-pulse flex h-28 w-28 items-center justify-center rounded-full bg-[var(--primary)]/10 text-[var(--primary)]">
+
+                    <Stethoscope
+                      size={55}
+                      strokeWidth={1.4}
+                    />
+
                   </div>
 
                 </div>
@@ -325,30 +514,41 @@ function Home() {
 
 
           {/* Content */}
+
           <div>
 
             <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-[var(--primary)]">
               What Is CardioPredict-AI?
             </p>
 
+
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+
               AI-powered cardiac
+
               <span className="block">
                 risk prediction.
               </span>
+
             </h2>
 
+
             <p className="mt-5 leading-7 text-[var(--text-secondary)]">
+
               CardioPredict-AI is a machine-learning powered
               platform designed to analyze important cardiac
               health parameters and provide a model-generated
               prediction.
+
             </p>
 
+
             <p className="mt-4 leading-7 text-[var(--text-secondary)]">
+
               The platform brings patient input, intelligent
               analysis, prediction history, and reports together
               inside one protected dashboard.
+
             </p>
 
 
@@ -356,12 +556,14 @@ function Home() {
               to="/about"
               className="group mt-7 inline-flex items-center gap-2 font-semibold text-[var(--primary)]"
             >
+
               Learn About the Platform
 
               <ArrowRight
                 size={17}
                 className="transition-transform group-hover:translate-x-1"
               />
+
             </Link>
 
           </div>
@@ -390,8 +592,10 @@ function Home() {
             </h2>
 
             <p className="mt-4 leading-7 text-[var(--text-secondary)]">
+
               A simple three-step workflow connects the
               patient parameters with the machine-learning model.
+
             </p>
 
           </div>
@@ -444,9 +648,11 @@ function Home() {
           </h2>
 
           <p className="mx-auto mt-4 max-w-2xl leading-7 text-[var(--text-secondary)]">
+
             CardioPredict-AI brings prediction, history,
             reports, and account management into one focused
             dashboard.
+
           </p>
 
         </div>
@@ -498,25 +704,35 @@ function Home() {
             <div className="relative">
 
               <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--primary)]/10 text-[var(--primary)]">
+
                 <HeartPulse size={28} />
+
               </div>
+
 
               <h2 className="mt-6 text-3xl font-bold sm:text-4xl">
                 Take Care of Your Heart
               </h2>
 
+
               <p className="mx-auto mt-4 max-w-2xl leading-7 text-[var(--text-secondary)]">
+
                 Understanding cardiac risk is only one part of
                 maintaining heart health. Explore practical
                 information about prevention and healthy habits.
+
               </p>
+
 
               <Link
                 to="/prevention"
                 className="mt-7 inline-flex items-center gap-2 rounded-lg bg-[var(--primary)] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[var(--primary-hover)]"
               >
+
                 Explore Prevention
+
                 <ArrowRight size={18} />
+
               </Link>
 
             </div>
@@ -540,24 +756,35 @@ function Home() {
             Get Started
           </p>
 
+
           <h2 className="mt-3 text-3xl font-bold sm:text-4xl lg:text-5xl">
+
             Ready to explore your
+
             <span className="block text-[var(--primary)]">
               cardiac risk?
             </span>
+
           </h2>
 
+
           <p className="mx-auto mt-5 max-w-xl leading-7 text-[var(--text-secondary)]">
+
             Sign in to access the CardioPredict-AI dashboard
             and begin your prediction workflow.
+
           </p>
+
 
           <Link
             to="/login"
             className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[var(--primary)] px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-[var(--primary-hover)]"
           >
+
             Start Prediction
+
             <ArrowRight size={18} />
+
           </Link>
 
         </div>
@@ -584,7 +811,9 @@ function Highlight({
   title,
   description,
 }: HighlightProps) {
+
   return (
+
     <div className="flex items-center gap-3 px-5 py-6 sm:justify-center sm:px-6">
 
       <div className="text-[var(--primary)]">
@@ -592,6 +821,7 @@ function Highlight({
       </div>
 
       <div>
+
         <p className="text-sm font-semibold">
           {title}
         </p>
@@ -599,9 +829,11 @@ function Highlight({
         <p className="mt-0.5 text-xs text-[var(--text-muted)]">
           {description}
         </p>
+
       </div>
 
     </div>
+
   );
 }
 
@@ -623,7 +855,9 @@ function ProcessStep({
   title,
   description,
 }: ProcessStepProps) {
+
   return (
+
     <div className="relative rounded-2xl border border-[var(--border)] bg-[var(--background)] p-7">
 
       <div className="flex items-center justify-between">
@@ -638,15 +872,18 @@ function ProcessStep({
 
       </div>
 
+
       <h3 className="mt-6 text-lg font-bold">
         {title}
       </h3>
+
 
       <p className="mt-3 text-sm leading-6 text-[var(--text-secondary)]">
         {description}
       </p>
 
     </div>
+
   );
 }
 
@@ -666,23 +903,32 @@ function FeatureCard({
   title,
   description,
 }: FeatureCardProps) {
+
   return (
+
     <div className="group rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 transition duration-300 hover:-translate-y-1 hover:border-[var(--primary)]/40">
 
       <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--primary)]/10 text-[var(--primary)] transition group-hover:bg-[var(--primary)] group-hover:text-white">
+
         {icon}
+
       </div>
+
 
       <h3 className="mt-5 font-bold">
         {title}
       </h3>
+
 
       <p className="mt-2 text-sm leading-6 text-[var(--text-secondary)]">
         {description}
       </p>
 
     </div>
+
   );
+
 }
+
 
 export default Home;

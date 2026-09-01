@@ -86,3 +86,159 @@ img {
 #root {
   min-height: 100vh;
 }
+
+
+
+/* =========================================================
+   CARDIOPREDICT-AI HERO ANIMATIONS
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   HEARTBEAT
+--------------------------------------------------------- */
+
+.heartbeat-heart {
+  animation: heartBeat 1.4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes heartBeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  8% {
+    transform: scale(1.08);
+  }
+
+  16% {
+    transform: scale(0.98);
+  }
+
+  24% {
+    transform: scale(1.06);
+  }
+
+  35%,
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+/* Outer ring */
+.heartbeat-ring-outer {
+  animation: outerHeartRing 1.4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+
+/* Inner ring */
+.heartbeat-ring-inner {
+  animation: innerHeartRing 1.4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes outerHeartRing {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.45;
+  }
+
+  12% {
+    transform: scale(0.92);
+    opacity: 0.25;
+  }
+
+  24% {
+    transform: scale(1.06);
+    opacity: 0.55;
+  }
+
+  38% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+}
+
+@keyframes innerHeartRing {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  12% {
+    transform: scale(0.94);
+    opacity: 0.3;
+  }
+
+  24% {
+    transform: scale(1.08);
+    opacity: 0.6;
+  }
+
+  38% {
+    transform: scale(1);
+    opacity: 0.45;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   ECG MOVEMENT
+--------------------------------------------------------- */
+
+.ecg-window {
+  overflow: hidden;
+  width: 100%;
+}
+
+.ecg-track {
+  display: flex;
+  width: max-content;
+  height: 100%;
+  animation: ecgMove 2.8s linear infinite;
+}
+
+@keyframes ecgMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-500px);
+  }
+}
+
+
+/* ---------------------------------------------------------
+   PREDICTION ENGINE FLOATING
+--------------------------------------------------------- */
+
+.prediction-engine {
+  animation: predictionFloat 3.2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes predictionFloat {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(-10px, 5px);
+  }
+
+  50% {
+    transform: translate(-20px, 8px);
+  }
+
+  75% {
+    transform: translate(-10px, 5px);
+  }
+}

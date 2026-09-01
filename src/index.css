@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+/* ========================================
+   CARDIOPREDICT-AI THEME
+   ======================================== */
+
+:root {
+  /* Light Mode */
+  --background: #EDEBDD;
+  --surface: #F7F6EF;
+  --surface-secondary: #E4E2D4;
+
+  --primary: #810100;
+  --primary-hover: #650000;
+
+  --text-primary: #1B1717;
+  --text-secondary: #625D58;
+  --text-muted: #8A8580;
+
+  --border: #D4D1C3;
+}
+
+[data-theme="dark"] {
+  /* Dark Mode */
+  --background: #000000;
+  --surface: #111111;
+  --surface-secondary: #1A1A1A;
+
+  --primary: #f80909;
+  --primary-hover: #cc3535;
+
+  --text-primary: #EDEBDD;
+  --text-secondary: #C4C0B8;
+  --text-muted: #918C85;
+
+  --border: #333333;
+}
+/* ========================================
+   GLOBAL RESET
+   ======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  background: var(--background);
+  color: var(--text-primary);
+
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+#root {
+  min-height: 100vh;
+}

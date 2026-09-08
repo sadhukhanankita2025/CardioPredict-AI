@@ -76,22 +76,22 @@ function Register() {
   };
 
   return (
-    <main className="min-h-[calc(100vh-5rem)] bg-[var(--background)] px-4 py-12">
+    <main className="min-h-[calc(100vh-5rem)] bg-background px-4 py-12">
 
       <div className="mx-auto flex w-full max-w-md flex-col">
 
         {/* Brand */}
         <div className="mb-8 text-center">
 
-          <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--primary)] text-white shadow-lg">
+          <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-white shadow-lg">
             <Activity size={30} strokeWidth={2.2} />
           </div>
 
-          <h1 className="text-3xl font-bold tracking-tight text-[var(--text-primary)]">
+          <h1 className="text-3xl font-bold tracking-tight text-text-primary">
             Create your account
           </h1>
 
-          <p className="mt-2 text-sm text-[var(--text-secondary)]">
+          <p className="mt-2 text-sm text-text-secondary">
             Start using CardioPredict-AI today
           </p>
 
@@ -99,7 +99,7 @@ function Register() {
 
 
         {/* Register Card */}
-        <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-xl sm:p-8">
+        <div className="rounded-2xl border border-border bg-surface p-6 shadow-xl sm:p-8">
 
           {/* Google / GitHub */}
           <div className="grid grid-cols-2 gap-3">
@@ -107,7 +107,7 @@ function Register() {
             <button
               type="button"
               onClick={handleGoogleRegister}
-              className="flex h-11 items-center justify-center gap-2 rounded-lg border border-[var(--border)] bg-[var(--background)] text-sm font-medium text-[var(--text-primary)] transition hover:border-[var(--primary)] hover:bg-[var(--surface-secondary)]"
+              className="flex h-11 items-center justify-center gap-2 rounded-lg border border-border bg-background text-sm font-medium text-text-primary transition hover:border-primary hover:bg-surface-secondary"
             >
               <span className="text-base font-bold">G</span>
               Google
@@ -119,20 +119,20 @@ function Register() {
           {/* Divider */}
           <div className="my-6 flex items-center gap-4">
 
-            <div className="h-px flex-1 bg-[var(--border)]" />
+            <div className="h-px flex-1 bg-border" />
 
-            <span className="text-xs text-[var(--text-muted)]">
+            <span className="text-xs text-text-muted">
               OR
             </span>
 
-            <div className="h-px flex-1 bg-[var(--border)]" />
+            <div className="h-px flex-1 bg-border" />
 
           </div>
 
 
           {/* Error */}
           {error && (
-            <div className="mb-5 rounded-lg border border-[var(--primary)]/30 bg-[var(--primary)]/10 px-4 py-3 text-sm text-[var(--primary)]">
+            <div className="mb-5 rounded-lg border border-primary/30 bg-primary/10 px-4 py-3 text-sm text-primary">
               {error}
             </div>
           )}
@@ -146,7 +146,7 @@ function Register() {
 
               <label
                 htmlFor="name"
-                className="mb-2 block text-sm font-medium text-[var(--text-primary)]"
+                className="mb-2 block text-sm font-medium text-text-primary"
               >
                 Full Name
               </label>
@@ -155,7 +155,7 @@ function Register() {
 
                 <User
                   size={18}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)]"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted"
                 />
 
                 <input
@@ -166,7 +166,7 @@ function Register() {
                   onChange={handleChange}
                   placeholder="Enter your full name"
                   autoComplete="name"
-                  className="h-11 w-full rounded-lg border border-[var(--border)] bg-[var(--background)] pl-10 pr-4 text-sm text-[var(--text-primary)] outline-none transition placeholder:text-[var(--text-muted)] focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/20"
+                  className="h-11 w-full rounded-lg border border-border bg-background pl-10 pr-4 text-sm text-text-primary outline-none transition placeholder:text-text-muted focus:border-primary focus:ring-2 focus:ring-primary/20"
                 />
 
               </div>
@@ -179,7 +179,7 @@ function Register() {
 
               <label
                 htmlFor="email"
-                className="mb-2 block text-sm font-medium text-[var(--text-primary)]"
+                className="mb-2 block text-sm font-medium text-text-primary"
               >
                 Email Address
               </label>
@@ -188,7 +188,7 @@ function Register() {
 
                 <Mail
                   size={18}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)]"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted"
                 />
 
                 <input
@@ -199,7 +199,7 @@ function Register() {
                   onChange={handleChange}
                   placeholder="you@example.com"
                   autoComplete="email"
-                  className="h-11 w-full rounded-lg border border-[var(--border)] bg-[var(--background)] pl-10 pr-4 text-sm text-[var(--text-primary)] outline-none transition placeholder:text-[var(--text-muted)] focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/20"
+                  className="h-11 w-full rounded-lg border border-border bg-background pl-10 pr-4 text-sm text-text-primary outline-none transition placeholder:text-text-muted focus:border-primary focus:ring-2 focus:ring-primary/20"
                 />
 
               </div>
@@ -212,7 +212,7 @@ function Register() {
 
               <label
                 htmlFor="password"
-                className="mb-2 block text-sm font-medium text-[var(--text-primary)]"
+                className="mb-2 block text-sm font-medium text-text-primary"
               >
                 Password
               </label>
@@ -221,7 +221,7 @@ function Register() {
 
                 <LockKeyhole
                   size={18}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)]"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted"
                 />
 
                 <input
@@ -232,13 +232,13 @@ function Register() {
                   onChange={handleChange}
                   placeholder="Create a password"
                   autoComplete="new-password"
-                  className="h-11 w-full rounded-lg border border-[var(--border)] bg-[var(--background)] pl-10 pr-11 text-sm text-[var(--text-primary)] outline-none transition placeholder:text-[var(--text-muted)] focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/20"
+                  className="h-11 w-full rounded-lg border border-border bg-background pl-10 pr-11 text-sm text-text-primary outline-none transition placeholder:text-text-muted focus:border-primary focus:ring-2 focus:ring-primary/20"
                 />
 
                 <button
                   type="button"
                   onClick={() => setShowPassword((previous) => !previous)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)] transition hover:text-[var(--primary)]"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-text-muted transition hover:text-primary"
                   aria-label={
                     showPassword ? 'Hide password' : 'Show password'
                   }
@@ -260,7 +260,7 @@ function Register() {
 
               <label
                 htmlFor="confirmPassword"
-                className="mb-2 block text-sm font-medium text-[var(--text-primary)]"
+                className="mb-2 block text-sm font-medium text-text-primary"
               >
                 Confirm Password
               </label>
@@ -269,7 +269,7 @@ function Register() {
 
                 <LockKeyhole
                   size={18}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)]"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted"
                 />
 
                 <input
@@ -280,7 +280,7 @@ function Register() {
                   onChange={handleChange}
                   placeholder="Confirm your password"
                   autoComplete="new-password"
-                  className="h-11 w-full rounded-lg border border-[var(--border)] bg-[var(--background)] pl-10 pr-11 text-sm text-[var(--text-primary)] outline-none transition placeholder:text-[var(--text-muted)] focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/20"
+                  className="h-11 w-full rounded-lg border border-border bg-background pl-10 pr-11 text-sm text-text-primary outline-none transition placeholder:text-text-muted focus:border-primary focus:ring-2 focus:ring-primary/20"
                 />
 
                 <button
@@ -288,7 +288,7 @@ function Register() {
                   onClick={() =>
                     setShowConfirmPassword((previous) => !previous)
                   }
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)] transition hover:text-[var(--primary)]"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-text-muted transition hover:text-primary"
                   aria-label={
                     showConfirmPassword
                       ? 'Hide password'
@@ -314,12 +314,12 @@ function Register() {
                 id="terms"
                 type="checkbox"
                 required
-                className="mt-1 h-4 w-4 accent-[var(--primary)]"
+                className="mt-1 h-4 w-4 accent-primary"
               />
 
               <label
                 htmlFor="terms"
-                className="text-xs leading-5 text-[var(--text-secondary)]"
+                className="text-xs leading-5 text-text-secondary"
               >
                 I agree to the terms of use and understand that
                 CardioPredict-AI provides informational predictions
@@ -332,7 +332,7 @@ function Register() {
             {/* Submit */}
             <button
               type="submit"
-              className="flex h-11 w-full items-center justify-center rounded-lg bg-[var(--primary)] px-5 text-sm font-semibold text-white transition hover:bg-[var(--primary-hover)] hover:shadow-lg"
+              className="flex h-11 w-full items-center justify-center rounded-lg bg-primary px-5 text-sm font-semibold text-white transition hover:bg-primary-hover hover:shadow-lg"
             >
               Create Account
             </button>
@@ -341,13 +341,13 @@ function Register() {
 
 
           {/* Login */}
-          <p className="mt-7 text-center text-sm text-[var(--text-secondary)]">
+          <p className="mt-7 text-center text-sm text-text-secondary">
 
             Already have an account?{' '}
 
             <Link
               to="/login"
-              className="font-semibold text-[var(--primary)] transition hover:text-[var(--primary-hover)]"
+              className="font-semibold text-primary transition hover:text-primary-hover"
             >
               Sign in
             </Link>
@@ -358,7 +358,7 @@ function Register() {
 
 
         {/* Disclaimer */}
-        <p className="mt-6 text-center text-xs leading-5 text-[var(--text-muted)]">
+        <p className="mt-6 text-center text-xs leading-5 text-text-muted">
           By creating an account, you agree to use CardioPredict-AI
           responsibly.
         </p>

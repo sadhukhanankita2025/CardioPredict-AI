@@ -39,8 +39,8 @@ function DashboardSideNav() {
         w-64
         shrink-0
         border-r
-        border-[var(--border)]
-        bg-[var(--background)]
+        border-border
+        bg-background
         lg:block
       "
     >
@@ -48,7 +48,7 @@ function DashboardSideNav() {
         <nav className="flex h-full flex-col px-4 py-6">
           {/* Navigation */}
           <div>
-            <p className="mb-4 px-3 text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">
+            <p className="mb-4 px-3 text-xs font-semibold uppercase tracking-wider text-text-muted">
               Dashboard
             </p>
 
@@ -64,8 +64,8 @@ function DashboardSideNav() {
                     className={({ isActive }) =>
                       `flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium transition-all ${
                         isActive
-                          ? 'bg-[var(--primary)]/10 text-[var(--primary)]'
-                          : 'text-[var(--text-secondary)] hover:bg-[var(--surface)] hover:text-[var(--text-primary)]'
+                          ? 'bg-primary/10 text-primary'
+                          : 'text-text-secondary hover:bg-surface hover:text-text-primary'
                       }`
                     }
                   >
@@ -78,12 +78,12 @@ function DashboardSideNav() {
           </div>
 
           {/* Divider */}
-          <div className="my-6 h-px bg-[var(--border)]" />
+          <div className="my-6 h-px bg-border" />
 
           {/* Settings */}
           <button
             type="button"
-            className="flex w-full items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium text-[var(--text-secondary)] transition-all hover:bg-[var(--surface)] hover:text-[var(--text-primary)]"
+            className="flex w-full items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium text-text-secondary transition-all hover:bg-surface hover:text-text-primary"
           >
             <Settings size={19} />
             <span>Settings</span>

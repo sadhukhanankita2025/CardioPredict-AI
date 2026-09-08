@@ -111,7 +111,7 @@ function Dashboard() {
 
         <div className="mb-8">
 
-          <p className="mb-2 text-sm font-medium text-[var(--primary)]">
+          <p className="mb-2 text-sm font-medium text-primary">
             CARDIOPREDICT-AI
           </p>
 
@@ -119,7 +119,7 @@ function Dashboard() {
             Dashboard
           </h1>
 
-          <p className="mt-2 max-w-2xl text-[var(--text-secondary)]">
+          <p className="mt-2 max-w-2xl text-text-secondary">
             Your AI-powered cardiac risk prediction
             workspace.
           </p>
@@ -128,7 +128,7 @@ function Dashboard() {
 
         {/* Welcome Card */}
 
-        <div className="mb-8 overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface)]">
+        <div className="mb-8 overflow-hidden rounded-2xl border border-border bg-surface">
 
           <div className="p-6 sm:p-8">
 
@@ -140,7 +140,7 @@ function Dashboard() {
                   Welcome to CardioPredict-AI 🫀
                 </h2>
 
-                <p className="mt-2 max-w-xl text-[var(--text-secondary)]">
+                <p className="mt-2 max-w-xl text-text-secondary">
                   Use the Prediction section to enter
                   patient parameters and generate an
                   AI-based cardiac disease prediction.
@@ -154,7 +154,7 @@ function Dashboard() {
                   window.location.href =
                     "/dashboard/prediction";
                 }}
-                className="rounded-lg bg-[var(--primary)] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[var(--primary-hover)]"
+                className="rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary-hover"
               >
                 Start Prediction
               </button>
@@ -175,18 +175,18 @@ function Dashboard() {
             return (
               <div
                 key={stat.title}
-                className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5"
+                className="rounded-2xl border border-border bg-surface p-5"
               >
 
                 <div className="mb-5 flex items-center justify-between">
 
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--primary)]/10 text-[var(--primary)]">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                     <Icon size={20} />
                   </div>
 
                 </div>
 
-                <p className="text-sm text-[var(--text-muted)]">
+                <p className="text-sm text-text-muted">
                   {stat.title}
                 </p>
 
@@ -194,7 +194,7 @@ function Dashboard() {
                   {stat.value}
                 </p>
 
-                <p className="mt-1 text-xs text-[var(--text-secondary)]">
+                <p className="mt-1 text-xs text-text-secondary">
                   {stat.description}
                 </p>
 

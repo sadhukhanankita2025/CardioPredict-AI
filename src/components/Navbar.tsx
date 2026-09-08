@@ -58,8 +58,8 @@ function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--background)]/95 backdrop-blur-md">
-      <nav className="mx-auto flex h-20 w-[92%] max-w-[1400px] items-center justify-between">
+    <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-md">
+      <nav className="mx-auto flex h-20 w-[92%] max-w-350 items-center justify-between">
         {/* Logo */}
         <button
           onClick={() => handleNavigation("/")}
@@ -69,7 +69,7 @@ function Navbar() {
           <img
             src={darkMode ? darkLogo : lightLogo}
             alt="CardioPredict-AI"
-            className="h-auto w-[190px]"
+            className="h-auto w-47.5"
           />
         </button>
 
@@ -84,14 +84,14 @@ function Navbar() {
                 to={link.path}
                 className={`relative px-4 py-3 text-sm font-medium transition-colors ${
                   active
-                    ? "text-[var(--primary)]"
-                    : "text-[var(--text-secondary)] hover:text-[var(--primary)]"
+                    ? "text-primary"
+                    : "text-text-secondary hover:text-primary"
                 }`}
               >
                 {link.name}
 
                 {active && (
-                  <span className="absolute bottom-1 left-4 right-4 h-[2px] rounded-full bg-[var(--primary)]" />
+                  <span className="absolute bottom-1 left-4 right-4 h-0.5 rounded-full bg-primary" />
                 )}
               </Link>
             );
@@ -100,9 +100,9 @@ function Navbar() {
           {/* Sign In */}
           <button
             onClick={() => handleNavigation("/login")}
-            className={`ml-2 rounded-lg border border-transparent px-4 py-2.5 text-sm font-medium text-[var(--primary)] transition-all hover:border-[var(--primary-hover)] hover:text-[var(--primary)] ${
+            className={`ml-2 rounded-lg border border-transparent px-4 py-2.5 text-sm font-medium text-primary transition-all hover:border-primary-hover hover:text-primary ${
               location.pathname === "/login"
-                ? "border-[var(--primary-hover)]"
+                ? "border-primary-hover"
                 : ""
             }`}
           >
@@ -112,7 +112,7 @@ function Navbar() {
           {/* Create Account */}
           <button
             onClick={() => handleNavigation("/register")}
-            className="rounded-lg border border-transparent px-4 py-2.5 text-sm font-semibold text-[var(--primary)] transition-all hover:border-[var(--primary-hover)] hover:text-[var(--primary)]"
+            className="rounded-lg border border-transparent px-4 py-2.5 text-sm font-semibold text-primary transition-all hover:border-primary-hover hover:text-primary"
           >
             Sign Up
           </button>
@@ -120,7 +120,7 @@ function Navbar() {
           {/* Predict Now */}
           <button
             onClick={() => handleNavigation("/login")}
-            className="rounded-lg bg-[var(--primary)] px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-[var(--primary-hover)] hover:shadow-lg"
+            className="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-primary-hover hover:shadow-lg"
           >
             Predict Now
           </button>
@@ -128,7 +128,7 @@ function Navbar() {
           {/* Theme Toggle */}
           <button
             onClick={() => setDarkMode((previous) => !previous)}
-            className="ml-2 flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)] text-lg transition-all hover:border-[var(--primary)]"
+            className="ml-2 flex h-10 w-10 items-center justify-center rounded-full border border-border bg-surface text-lg transition-all hover:border-primary"
             aria-label={
               darkMode ? "Switch to light mode" : "Switch to dark mode"
             }
@@ -142,7 +142,7 @@ function Navbar() {
           {/* Theme Toggle */}
           <button
             onClick={() => setDarkMode((previous) => !previous)}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)] text-lg"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-surface text-lg"
             aria-label={
               darkMode ? "Switch to light mode" : "Switch to dark mode"
             }
@@ -153,7 +153,7 @@ function Navbar() {
           {/* Hamburger */}
           <button
             onClick={() => setMenuOpen((previous) => !previous)}
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--border)] bg-[var(--surface)] text-xl"
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-surface text-xl"
             aria-label="Toggle navigation menu"
             aria-expanded={menuOpen}
           >
@@ -164,8 +164,8 @@ function Navbar() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="border-t border-[var(--border)] bg-[var(--background)] lg:hidden">
-          <div className="mx-auto flex w-[92%] max-w-[1400px] flex-col py-4">
+        <div className="border-t border-border bg-background lg:hidden">
+          <div className="mx-auto flex w-[92%] max-w-350 flex-col py-4">
             {navLinks.map((link) => {
               const active = isActive(link.path);
 
@@ -176,8 +176,8 @@ function Navbar() {
                   onClick={() => setMenuOpen(false)}
                   className={`rounded-lg px-4 py-3 text-sm font-medium transition-colors ${
                     active
-                      ? "bg-[var(--primary)]/10 text-[var(--primary)]"
-                      : "text-[var(--text-secondary)] hover:bg-[var(--surface)] hover:text-[var(--primary)]"
+                      ? "bg-primary/10 text-primary"
+                      : "text-text-secondary hover:bg-surface hover:text-primary"
                   }`}
                 >
                   {link.name}
@@ -188,7 +188,7 @@ function Navbar() {
             {/* Mobile Sign In */}
             <button
               onClick={() => handleNavigation("/login")}
-              className="mt-2 rounded-lg border border-transparent px-4 py-3 text-left text-sm font-medium text-[var(--primary)] transition-all hover:border-[var(--primary-hover)] hover:text-[var(--primary)]"
+              className="mt-2 rounded-lg border border-transparent px-4 py-3 text-left text-sm font-medium text-primary transition-all hover:border-primary-hover hover:text-primary"
             >
               Sign In
             </button>
@@ -196,7 +196,7 @@ function Navbar() {
             {/* Mobile Sign Up */}
             <button
               onClick={() => handleNavigation("/register")}
-              className="mt-1 rounded-lg border border-transparent px-4 py-3 text-left text-sm font-semibold text-[var(--primary)] transition-all hover:border-[var(--primary-hover)] hover:text-[var(--primary)]"
+              className="mt-1 rounded-lg border border-transparent px-4 py-3 text-left text-sm font-semibold text-primary transition-all hover:border-primary-hover hover:text-primary"
             >
               Sign Up
             </button>
@@ -204,7 +204,7 @@ function Navbar() {
             {/* Mobile Predict */}
             <button
               onClick={() => handleNavigation("/login")}
-              className="mt-3 rounded-lg bg-[var(--primary)] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[var(--primary-hover)]"
+              className="mt-3 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary-hover"
             >
               Predict Now
             </button>

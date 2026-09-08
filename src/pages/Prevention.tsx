@@ -10,7 +10,6 @@ import {
   HeartPulse,
   Moon,
   ShieldCheck,
-  Smartphone,
   Stethoscope,
   Wind,
 } from 'lucide-react';
@@ -19,45 +18,45 @@ import { Link } from 'react-router-dom';
 
 function Prevention() {
   return (
-    <div className="min-h-screen bg-[var(--background)] text-[var(--text-primary)]">
+    <div className="min-h-screen bg-background text-text-primary">
 
       {/* =========================================================
           HERO
       ========================================================= */}
 
-      <section className="relative overflow-hidden border-b border-[var(--border)]">
+      <section className="relative overflow-hidden border-b border-border">
 
         {/* Decorative background */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div className="absolute left-1/2 top-[-180px] h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-[var(--primary)]/10 blur-3xl" />
+          <div className="absolute left-1/2 -top-45 h-105 w-105 -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
 
-          <div className="absolute right-[-120px] top-40 h-80 w-80 rounded-full bg-[var(--maroon)]/10 blur-3xl" />
+          <div className="absolute -right-30 top-40 h-80 w-80 rounded-full bg-maroon/10 blur-3xl" />
 
-          <div className="absolute bottom-[-150px] left-[-100px] h-72 w-72 rounded-full bg-[var(--primary)]/5 blur-3xl" />
+          <div className="absolute -bottom-37.5 -left-25 h-72 w-72 rounded-full bg-primary/5 blur-3xl" />
         </div>
 
 
         <div className="relative mx-auto max-w-5xl px-5 py-20 text-center sm:px-8 lg:py-28">
 
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--primary)]/10 text-[var(--primary)]">
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
             <HeartPulse size={29} />
           </div>
 
 
-          <p className="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--primary)]">
+          <p className="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
             Heart Health & Prevention
           </p>
 
 
           <h1 className="mt-4 text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
             Protect your heart.
-            <span className="block text-[var(--primary)]">
+            <span className="block text-primary">
               Understand your risks.
             </span>
           </h1>
 
 
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-[var(--text-secondary)] sm:text-lg">
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-text-secondary sm:text-lg">
             Cardiovascular health is influenced by many factors.
             Building healthy habits and staying informed can help
             support your overall heart health.
@@ -66,7 +65,7 @@ function Prevention() {
 
           <a
             href="#heart-health"
-            className="mt-8 inline-flex items-center gap-2 rounded-lg border border-[var(--border)] bg-[var(--surface)] px-6 py-3 text-sm font-semibold transition hover:border-[var(--primary)] hover:text-[var(--primary)]"
+            className="mt-8 inline-flex items-center gap-2 rounded-lg border border-border bg-surface px-6 py-3 text-sm font-semibold transition hover:border-primary hover:text-primary"
           >
             Explore Prevention
             <ArrowRight size={17} />
@@ -88,7 +87,7 @@ function Prevention() {
 
         <div className="mx-auto max-w-3xl text-center">
 
-          <p className="text-sm font-semibold uppercase tracking-wider text-[var(--primary)]">
+          <p className="text-sm font-semibold uppercase tracking-wider text-primary">
             Know Your Heart
           </p>
 
@@ -98,7 +97,7 @@ function Prevention() {
           </h2>
 
 
-          <p className="mt-5 leading-7 text-[var(--text-secondary)]">
+          <p className="mt-5 leading-7 text-text-secondary">
             Understanding cardiovascular health means paying
             attention to the factors that can influence your
             heart and overall wellbeing.
@@ -136,13 +135,13 @@ function Prevention() {
           HEALTHY HABITS
       ========================================================= */}
 
-      <section className="border-y border-[var(--border)] bg-[var(--surface)]">
+      <section className="border-y border-border bg-surface">
 
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10 lg:py-28">
 
           <div className="max-w-2xl">
 
-            <p className="text-sm font-semibold uppercase tracking-wider text-[var(--primary)]">
+            <p className="text-sm font-semibold uppercase tracking-wider text-primary">
               Heart-Healthy Habits
             </p>
 
@@ -152,7 +151,7 @@ function Prevention() {
             </h2>
 
 
-            <p className="mt-5 leading-7 text-[var(--text-secondary)]">
+            <p className="mt-5 leading-7 text-text-secondary">
               Healthy routines can support cardiovascular wellbeing.
               Focus on habits that are realistic and sustainable for
               your everyday life.
@@ -229,7 +228,7 @@ function Prevention() {
 
         <div className="mx-auto max-w-3xl text-center">
 
-          <p className="text-sm font-semibold uppercase tracking-wider text-[var(--primary)]">
+          <p className="text-sm font-semibold uppercase tracking-wider text-primary">
             Important Health Factors
           </p>
 
@@ -239,7 +238,7 @@ function Prevention() {
           </h2>
 
 
-          <p className="mt-5 leading-7 text-[var(--text-secondary)]">
+          <p className="mt-5 leading-7 text-text-secondary">
             Cardiovascular health is influenced by a combination
             of factors. Some can be modified through lifestyle,
             while others may require professional medical guidance.
@@ -295,7 +294,7 @@ function Prevention() {
           KNOW YOUR NUMBERS
       ========================================================= */}
 
-      <section className="border-y border-[var(--border)] bg-[var(--surface)]">
+      <section className="border-y border-border bg-surface">
 
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10 lg:py-24">
 
@@ -303,7 +302,7 @@ function Prevention() {
 
             <div>
 
-              <p className="text-sm font-semibold uppercase tracking-wider text-[var(--primary)]">
+              <p className="text-sm font-semibold uppercase tracking-wider text-primary">
                 Know Your Numbers
               </p>
 
@@ -313,7 +312,7 @@ function Prevention() {
               </h2>
 
 
-              <p className="mt-5 max-w-2xl leading-7 text-[var(--text-secondary)]">
+              <p className="mt-5 max-w-2xl leading-7 text-text-secondary">
                 Regular health checkups can help you keep track
                 of important cardiovascular indicators. Discuss
                 your results with a qualified healthcare
@@ -359,12 +358,12 @@ function Prevention() {
 
           <div>
 
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--primary)]/10 text-[var(--primary)]">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
               <Stethoscope size={28} />
             </div>
 
 
-            <p className="mt-6 text-sm font-semibold uppercase tracking-wider text-[var(--primary)]">
+            <p className="mt-6 text-sm font-semibold uppercase tracking-wider text-primary">
               Professional Guidance
             </p>
 
@@ -374,7 +373,7 @@ function Prevention() {
             </h2>
 
 
-            <p className="mt-5 leading-7 text-[var(--text-secondary)]">
+            <p className="mt-5 leading-7 text-text-secondary">
               General health information cannot replace
               personalized medical advice. A healthcare
               professional can consider your individual
@@ -384,7 +383,7 @@ function Prevention() {
           </div>
 
 
-          <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 sm:p-8">
+          <div className="rounded-2xl border border-border bg-surface p-6 sm:p-8">
 
             <div className="space-y-5">
 
@@ -421,11 +420,11 @@ function Prevention() {
 
       <section className="px-5 pb-20 sm:px-8 lg:px-10 lg:pb-28">
 
-        <div className="mx-auto max-w-5xl rounded-2xl border border-[var(--primary)]/20 bg-[var(--primary)]/5 p-6 sm:p-8">
+        <div className="mx-auto max-w-5xl rounded-2xl border border-primary/20 bg-primary/5 p-6 sm:p-8">
 
           <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
 
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[var(--primary)]/10 text-[var(--primary)]">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <ShieldCheck size={23} />
             </div>
 
@@ -437,7 +436,7 @@ function Prevention() {
               </h3>
 
 
-              <p className="mt-2 text-sm leading-6 text-[var(--text-secondary)]">
+              <p className="mt-2 text-sm leading-6 text-text-secondary">
                 The information on this page is provided for
                 general educational purposes. It is not intended
                 to diagnose, treat, or prevent any medical
@@ -459,24 +458,24 @@ function Prevention() {
           FINAL CTA
       ========================================================= */}
 
-      <section className="border-t border-[var(--border)]">
+      <section className="border-t border-border">
 
         <div className="mx-auto max-w-4xl px-5 py-20 text-center sm:px-8 lg:py-24">
 
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--primary)]/10 text-[var(--primary)]">
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
             <HeartPulse size={28} />
           </div>
 
 
           <h2 className="mt-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Stay informed about
-            <span className="block text-[var(--primary)]">
+            <span className="block text-primary">
               your heart health.
             </span>
           </h2>
 
 
-          <p className="mx-auto mt-5 max-w-xl leading-7 text-[var(--text-secondary)]">
+          <p className="mx-auto mt-5 max-w-xl leading-7 text-text-secondary">
             Explore CardioPredict-AI and learn how its
             machine-learning workflow analyzes cardiac
             health parameters.
@@ -485,7 +484,7 @@ function Prevention() {
 
           <Link
             to="/login"
-            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[var(--primary)] px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-[var(--primary-hover)]"
+            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-primary-hover"
           >
             Explore CardioPredict-AI
             <ArrowRight size={18} />
@@ -516,9 +515,9 @@ function AwarenessCard({
   description,
 }: AwarenessCardProps) {
   return (
-    <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-7 text-center transition duration-300 hover:-translate-y-1 hover:border-[var(--primary)]/40">
+    <div className="rounded-2xl border border-border bg-surface p-7 text-center transition duration-300 hover:-translate-y-1 hover:border-primary/40">
 
-      <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--primary)]/10 text-[var(--primary)]">
+      <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
         {icon}
       </div>
 
@@ -528,7 +527,7 @@ function AwarenessCard({
       </h3>
 
 
-      <p className="mt-3 text-sm leading-6 text-[var(--text-secondary)]">
+      <p className="mt-3 text-sm leading-6 text-text-secondary">
         {description}
       </p>
 
@@ -557,16 +556,16 @@ function HabitCard({
   points,
 }: HabitCardProps) {
   return (
-    <div className="group rounded-2xl border border-[var(--border)] bg-[var(--background)] p-6 transition duration-300 hover:-translate-y-1 hover:border-[var(--primary)]/40 sm:p-7">
+    <div className="group rounded-2xl border border-border bg-background p-6 transition duration-300 hover:-translate-y-1 hover:border-primary/40 sm:p-7">
 
       <div className="flex items-start justify-between gap-4">
 
-        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--primary)]/10 text-[var(--primary)]">
+        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
           {icon}
         </div>
 
 
-        <span className="text-sm font-bold tracking-wider text-[var(--primary)]/50">
+        <span className="text-sm font-bold tracking-wider text-primary/50">
           {number}
         </span>
 
@@ -578,7 +577,7 @@ function HabitCard({
       </h3>
 
 
-      <p className="mt-3 text-sm leading-6 text-[var(--text-secondary)]">
+      <p className="mt-3 text-sm leading-6 text-text-secondary">
         {description}
       </p>
 
@@ -593,10 +592,10 @@ function HabitCard({
 
             <CheckCircle2
               size={17}
-              className="mt-0.5 shrink-0 text-[var(--primary)]"
+              className="mt-0.5 shrink-0 text-primary"
             />
 
-            <span className="text-sm text-[var(--text-secondary)]">
+            <span className="text-sm text-text-secondary">
               {point}
             </span>
 
@@ -626,11 +625,11 @@ function FactorCard({
   description,
 }: FactorCardProps) {
   return (
-    <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-5 transition duration-300 hover:border-[var(--primary)]/40">
+    <div className="rounded-xl border border-border bg-surface p-5 transition duration-300 hover:border-primary/40">
 
       <div className="flex items-center gap-4">
 
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[var(--primary)]/10 text-[var(--primary)]">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
           {icon}
         </div>
 
@@ -642,7 +641,7 @@ function FactorCard({
       </div>
 
 
-      <p className="mt-4 text-sm leading-6 text-[var(--text-secondary)]">
+      <p className="mt-4 text-sm leading-6 text-text-secondary">
         {description}
       </p>
 
@@ -665,14 +664,14 @@ function NumberCard({
   label,
 }: NumberCardProps) {
   return (
-    <div className="flex min-w-[95px] flex-col items-center rounded-xl border border-[var(--border)] bg-[var(--background)] p-4 text-center">
+    <div className="flex min-w-23.75 flex-col items-center rounded-xl border border-border bg-background p-4 text-center">
 
-      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--primary)]/10 text-[var(--primary)]">
+      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
         {icon}
       </div>
 
 
-      <p className="mt-3 text-xs font-semibold leading-4 text-[var(--text-secondary)]">
+      <p className="mt-3 text-xs font-semibold leading-4 text-text-secondary">
         {label}
       </p>
 
@@ -699,7 +698,7 @@ function GuidancePoint({
   return (
     <div className="flex gap-4">
 
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[var(--primary)]/10 text-[var(--primary)]">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
         {icon}
       </div>
 
@@ -711,7 +710,7 @@ function GuidancePoint({
         </h3>
 
 
-        <p className="mt-1 text-sm leading-6 text-[var(--text-secondary)]">
+        <p className="mt-1 text-sm leading-6 text-text-secondary">
           {description}
         </p>
 

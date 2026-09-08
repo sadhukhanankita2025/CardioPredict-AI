@@ -55,12 +55,12 @@ function History() {
   };
 
   return (
-    <div className="bg-[var(--background)] text-[var(--text-primary)]">
+    <div className="bg-background text-text-primary">
       <div className="p-5 sm:p-6 lg:p-8">
 
         {/* Heading */}
         <div className="mb-8">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-[var(--primary)]">
+          <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-primary">
             Patient Records
           </p>
 
@@ -68,7 +68,7 @@ function History() {
             Prediction History
           </h1>
 
-          <p className="mt-2 max-w-2xl text-[var(--text-secondary)]">
+          <p className="mt-2 max-w-2xl text-text-secondary">
             Review and manage your previous AI prediction records.
           </p>
         </div>
@@ -78,7 +78,7 @@ function History() {
           <div className="relative">
             <Search
               size={18}
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-muted)]"
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-text-muted"
             />
 
             <input
@@ -86,19 +86,19 @@ function History() {
               placeholder="Search patient records..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full rounded-lg border border-[var(--border)] bg-[var(--surface)] py-3 pl-11 pr-4 text-sm outline-none transition focus:border-[var(--primary)]"
+              className="w-full rounded-lg border border-border bg-surface py-3 pl-11 pr-4 text-sm outline-none transition focus:border-primary"
             />
           </div>
         </div>
 
         {/* History Card */}
-        <section className="overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface)]">
+        <section className="overflow-hidden rounded-2xl border border-border bg-surface">
 
           {/* Header */}
-          <div className="border-b border-[var(--border)] p-6">
+          <div className="border-b border-border p-6">
             <div className="flex items-center gap-3">
 
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--primary)]/10 text-[var(--primary)]">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                 <HistoryIcon size={20} />
               </div>
 
@@ -107,7 +107,7 @@ function History() {
                   Prediction Records
                 </h2>
 
-                <p className="text-sm text-[var(--text-muted)]">
+                <p className="text-sm text-text-muted">
                   {history.length} records
                 </p>
               </div>
@@ -119,7 +119,7 @@ function History() {
           {filteredHistory.length === 0 ? (
             <div className="px-6 py-16 text-center">
 
-              <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-[var(--background)] text-[var(--text-muted)]">
+              <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-background text-text-muted">
                 <HistoryIcon size={28} />
               </div>
 
@@ -127,20 +127,20 @@ function History() {
                 No Prediction History
               </h3>
 
-              <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-[var(--text-secondary)]">
+              <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-text-secondary">
                 Your completed predictions will appear here.
               </p>
 
             </div>
           ) : (
 
-            <div className="divide-y divide-[var(--border)]">
+            <div className="divide-y divide-border">
 
               {filteredHistory.map((item) => (
 
                 <div
                   key={item.id}
-                  className="p-6 transition hover:bg-[var(--background)]"
+                  className="p-6 transition hover:bg-background"
                 >
 
                   <div className="flex flex-col justify-between gap-5 lg:flex-row">
@@ -152,11 +152,11 @@ function History() {
                         {item.patientName}
                       </p>
 
-                      <p className="mt-1 text-sm text-[var(--text-muted)]">
+                      <p className="mt-1 text-sm text-text-muted">
                         Prediction #{item.id}
                       </p>
 
-                      <div className="mt-3 flex flex-wrap gap-4 text-xs text-[var(--text-muted)]">
+                      <div className="mt-3 flex flex-wrap gap-4 text-xs text-text-muted">
 
                         <span className="flex items-center gap-1">
                           <CalendarDays size={14} />
@@ -180,7 +180,7 @@ function History() {
                           {item.riskLevel}
                         </p>
 
-                        <p className="mt-1 text-xs text-[var(--text-muted)]">
+                        <p className="mt-1 text-xs text-text-muted">
                           Model Confidence:{" "}
                           {item.modelConfidence.toFixed(1)}%
                         </p>
@@ -193,7 +193,7 @@ function History() {
                           onClick={() =>
                             setEditingRecord(item)
                           }
-                          className="flex items-center gap-2 rounded-lg border border-[var(--border)] px-3 py-2 text-sm transition hover:border-[var(--primary)] hover:text-[var(--primary)]"
+                          className="flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm transition hover:border-primary hover:text-primary"
                         >
                           <Pencil size={15} />
                           Edit
@@ -204,7 +204,7 @@ function History() {
                           onClick={() =>
                             handleDelete(item.id)
                           }
-                          className="flex items-center gap-2 rounded-lg border border-[var(--border)] px-3 py-2 text-sm transition hover:border-red-500 hover:text-red-500"
+                          className="flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm transition hover:border-red-500 hover:text-red-500"
                         >
                           <Trash2 size={15} />
                           Delete
@@ -247,16 +247,16 @@ function History() {
         {editingRecord && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
 
-            <div className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl border border-[var(--border)] bg-[var(--surface)]">
+            <div className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl border border-border bg-surface">
 
-              <div className="flex items-center justify-between border-b border-[var(--border)] p-6">
+              <div className="flex items-center justify-between border-b border-border p-6">
 
                 <div>
                   <h2 className="text-xl font-semibold">
                     Edit Patient Record
                   </h2>
 
-                  <p className="mt-1 text-sm text-[var(--text-muted)]">
+                  <p className="mt-1 text-sm text-text-muted">
                     Update the stored patient information.
                   </p>
                 </div>
@@ -264,7 +264,7 @@ function History() {
                 <button
                   type="button"
                   onClick={() => setEditingRecord(null)}
-                  className="rounded-lg p-2 hover:bg-[var(--background)]"
+                  className="rounded-lg p-2 hover:bg-background"
                 >
                   <X size={20} />
                 </button>
@@ -304,7 +304,7 @@ function History() {
                           [key]: e.target.value,
                         })
                       }
-                      className="w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-4 py-3 text-sm outline-none focus:border-[var(--primary)]"
+                      className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none focus:border-primary"
                     />
 
                   </div>
@@ -313,12 +313,12 @@ function History() {
 
               </div>
 
-              <div className="flex justify-end gap-3 border-t border-[var(--border)] p-6">
+              <div className="flex justify-end gap-3 border-t border-border p-6">
 
                 <button
                   type="button"
                   onClick={() => setEditingRecord(null)}
-                  className="rounded-lg border border-[var(--border)] px-5 py-3 text-sm"
+                  className="rounded-lg border border-border px-5 py-3 text-sm"
                 >
                   Cancel
                 </button>
@@ -326,7 +326,7 @@ function History() {
                 <button
                   type="button"
                   onClick={handleSaveEdit}
-                  className="flex items-center gap-2 rounded-lg bg-[var(--primary)] px-5 py-3 text-sm font-semibold text-white"
+                  className="flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-white"
                 >
                   <Save size={16} />
                   Save Changes
@@ -352,8 +352,8 @@ function Info({
   value: string;
 }) {
   return (
-    <div className="rounded-lg border border-[var(--border)] bg-[var(--background)] p-3">
-      <p className="text-xs text-[var(--text-muted)]">
+    <div className="rounded-lg border border-border bg-background p-3">
+      <p className="text-xs text-text-muted">
         {label}
       </p>
 

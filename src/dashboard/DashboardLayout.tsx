@@ -1,28 +1,19 @@
-import { Outlet } from 'react-router-dom';
-
-import DashboardHeader from './DashboardHeader';
-import DashboardSideNav from './DashboardSideNav';
-import Footer from '../components/Footer';
+import { Outlet } from "react-router-dom";
+import DashboardHeader from "./DashboardHeader";
+import DashboardSideNav from "./DashboardSideNav";
 
 function DashboardLayout() {
   return (
-    <div className="min-h-screen bg-[var(--background)] text-[var(--text-primary)]">
-      {/* Fixed Dashboard Header */}
+    <div className="min-h-screen bg-background text-text-primary">
       <DashboardHeader />
 
-      {/* Dashboard Body */}
-      <div className="flex min-h-[calc(100vh-5rem)] pt-20">
-        {/* Dashboard Sidebar */}
+      <div className="flex pt-20">
         <DashboardSideNav />
 
-        {/* Dashboard Pages */}
-        <main className="min-w-0 flex-1">
+        <main className="flex-1 overflow-y-auto">
           <Outlet />
         </main>
       </div>
-
-      {/* Dashboard Footer */}
-      <Footer />
     </div>
   );
 }

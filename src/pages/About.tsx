@@ -18,43 +18,43 @@ import { Link } from 'react-router-dom';
 
 function About() {
   return (
-    <div className="min-h-screen bg-[var(--background)] text-[var(--text-primary)]">
+    <div className="min-h-screen bg-background text-text-primary">
 
       {/* =========================================================
           PAGE INTRO
       ========================================================= */}
 
-      <section className="relative overflow-hidden border-b border-[var(--border)]">
+      <section className="relative overflow-hidden border-b border-border">
 
         {/* Background decoration */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div className="absolute left-1/2 top-[-180px] h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-[var(--primary)]/10 blur-3xl" />
+          <div className="absolute left-1/2 -top-45 h-105 w-105 -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
 
-          <div className="absolute right-[-100px] top-20 h-72 w-72 rounded-full bg-[var(--maroon)]/10 blur-3xl" />
+          <div className="absolute -right-25 top-20 h-72 w-72 rounded-full bg-maroon/10 blur-3xl" />
         </div>
 
 
         <div className="relative mx-auto max-w-4xl px-5 py-20 text-center sm:px-8 lg:py-28">
 
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--primary)]/10 text-[var(--primary)]">
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
             <HeartPulse size={29} />
           </div>
 
 
-          <p className="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--primary)]">
+          <p className="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
             About CardioPredict-AI
           </p>
 
 
           <h1 className="mt-4 text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
             Intelligent technology for
-            <span className="block text-[var(--primary)]">
+            <span className="block text-primary">
               cardiac risk analysis
             </span>
           </h1>
 
 
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-[var(--text-secondary)] sm:text-lg">
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-text-secondary sm:text-lg">
             CardioPredict-AI combines machine learning and
             structured cardiac health data to provide a
             model-generated prediction through a simple,
@@ -77,20 +77,20 @@ function About() {
           {/* Visual */}
           <div className="relative">
 
-            <div className="overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-8 sm:p-12">
+            <div className="overflow-hidden rounded-3xl border border-border bg-surface p-8 sm:p-12">
 
               <div className="relative mx-auto flex aspect-square max-w-md items-center justify-center">
 
                 {/* Outer rings */}
-                <div className="absolute h-72 w-72 rounded-full border border-[var(--primary)]/10" />
+                <div className="absolute h-72 w-72 rounded-full border border-primary/10" />
 
-                <div className="absolute h-60 w-60 rounded-full border border-[var(--primary)]/15" />
+                <div className="absolute h-60 w-60 rounded-full border border-primary/15" />
 
-                <div className="absolute h-48 w-48 rounded-full border border-[var(--primary)]/20" />
+                <div className="absolute h-48 w-48 rounded-full border border-primary/20" />
 
 
                 {/* Center */}
-                <div className="relative flex h-32 w-32 items-center justify-center rounded-full bg-[var(--primary)]/10 text-[var(--primary)]">
+                <div className="relative flex h-32 w-32 items-center justify-center rounded-full bg-primary/10 text-primary">
 
                   <HeartPulse
                     size={64}
@@ -102,13 +102,13 @@ function About() {
 
                 {/* Floating cards */}
 
-                <div className="absolute left-0 top-12 rounded-xl border border-[var(--border)] bg-[var(--background)] p-3 shadow-lg">
+                <div className="absolute left-0 top-12 rounded-xl border border-border bg-background p-3 shadow-lg">
 
                   <div className="flex items-center gap-2">
 
                     <Activity
                       size={17}
-                      className="text-[var(--primary)]"
+                      className="text-primary"
                     />
 
                     <span className="text-xs font-medium">
@@ -120,13 +120,13 @@ function About() {
                 </div>
 
 
-                <div className="absolute bottom-10 right-0 rounded-xl border border-[var(--border)] bg-[var(--background)] p-3 shadow-lg">
+                <div className="absolute bottom-10 right-0 rounded-xl border border-border bg-background p-3 shadow-lg">
 
                   <div className="flex items-center gap-2">
 
                     <BrainCircuit
                       size={17}
-                      className="text-[var(--primary)]"
+                      className="text-primary"
                     />
 
                     <span className="text-xs font-medium">
@@ -147,7 +147,7 @@ function About() {
           {/* Content */}
           <div>
 
-            <p className="text-sm font-semibold uppercase tracking-wider text-[var(--primary)]">
+            <p className="text-sm font-semibold uppercase tracking-wider text-primary">
               What Is CardioPredict-AI?
             </p>
 
@@ -160,7 +160,7 @@ function About() {
             </h2>
 
 
-            <p className="mt-6 leading-7 text-[var(--text-secondary)]">
+            <p className="mt-6 leading-7 text-text-secondary">
               CardioPredict-AI is a machine-learning based
               platform designed to analyze a collection of
               cardiac health parameters and generate a
@@ -168,7 +168,7 @@ function About() {
             </p>
 
 
-            <p className="mt-4 leading-7 text-[var(--text-secondary)]">
+            <p className="mt-4 leading-7 text-text-secondary">
               The platform provides a structured workflow where
               patient information can be entered, processed by
               the trained model, and presented through an
@@ -199,13 +199,13 @@ function About() {
           HOW THE SYSTEM WORKS
       ========================================================= */}
 
-      <section className="border-y border-[var(--border)] bg-[var(--surface)]">
+      <section className="border-y border-border bg-surface">
 
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10 lg:py-28">
 
           <div className="mx-auto max-w-2xl text-center">
 
-            <p className="text-sm font-semibold uppercase tracking-wider text-[var(--primary)]">
+            <p className="text-sm font-semibold uppercase tracking-wider text-primary">
               How The System Works
             </p>
 
@@ -215,7 +215,7 @@ function About() {
             </h2>
 
 
-            <p className="mt-4 leading-7 text-[var(--text-secondary)]">
+            <p className="mt-4 leading-7 text-text-secondary">
               CardioPredict-AI follows a straightforward workflow
               that connects patient input with the trained
               machine-learning model.
@@ -228,7 +228,7 @@ function About() {
           <div className="relative mt-14">
 
             {/* Connecting line */}
-            <div className="absolute left-[16.66%] right-[16.66%] top-12 hidden h-px bg-[var(--border)] md:block" />
+            <div className="absolute left-[16.66%] right-[16.66%] top-12 hidden h-px bg-border md:block" />
 
 
             <div className="relative grid gap-8 md:grid-cols-3">
@@ -271,7 +271,7 @@ function About() {
 
         <div className="mx-auto max-w-3xl text-center">
 
-          <p className="text-sm font-semibold uppercase tracking-wider text-[var(--primary)]">
+          <p className="text-sm font-semibold uppercase tracking-wider text-primary">
             Model Parameters
           </p>
 
@@ -281,7 +281,7 @@ function About() {
           </h2>
 
 
-          <p className="mt-4 leading-7 text-[var(--text-secondary)]">
+          <p className="mt-4 leading-7 text-text-secondary">
             The prediction workflow uses 11 cardiac and
             demographic parameters as model inputs.
           </p>
@@ -367,13 +367,13 @@ function About() {
           PLATFORM FEATURES
       ========================================================= */}
 
-      <section className="border-y border-[var(--border)] bg-[var(--surface)]">
+      <section className="border-y border-border bg-surface">
 
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10 lg:py-28">
 
           <div className="text-center">
 
-            <p className="text-sm font-semibold uppercase tracking-wider text-[var(--primary)]">
+            <p className="text-sm font-semibold uppercase tracking-wider text-primary">
               Platform Features
             </p>
 
@@ -426,7 +426,7 @@ function About() {
 
         <div className="mx-auto max-w-3xl text-center">
 
-          <p className="text-sm font-semibold uppercase tracking-wider text-[var(--primary)]">
+          <p className="text-sm font-semibold uppercase tracking-wider text-primary">
             Why CardioPredict-AI?
           </p>
 
@@ -469,11 +469,11 @@ function About() {
 
       <section className="px-5 pb-20 sm:px-8 lg:px-10 lg:pb-28">
 
-        <div className="mx-auto max-w-5xl rounded-2xl border border-[var(--primary)]/20 bg-[var(--primary)]/5 p-6 sm:p-8">
+        <div className="mx-auto max-w-5xl rounded-2xl border border-primary/20 bg-primary/5 p-6 sm:p-8">
 
           <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
 
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[var(--primary)]/10 text-[var(--primary)]">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <ShieldCheck size={23} />
             </div>
 
@@ -485,7 +485,7 @@ function About() {
               </h3>
 
 
-              <p className="mt-2 text-sm leading-6 text-[var(--text-secondary)]">
+              <p className="mt-2 text-sm leading-6 text-text-secondary">
                 CardioPredict-AI provides a machine-learning
                 model prediction and is intended as a technology
                 and educational project. The prediction should
@@ -507,24 +507,24 @@ function About() {
           FINAL CTA
       ========================================================= */}
 
-      <section className="border-t border-[var(--border)]">
+      <section className="border-t border-border">
 
         <div className="mx-auto max-w-4xl px-5 py-20 text-center sm:px-8 lg:py-24">
 
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--primary)]/10 text-[var(--primary)]">
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
             <Stethoscope size={28} />
           </div>
 
 
           <h2 className="mt-6 text-3xl font-bold sm:text-4xl lg:text-5xl">
             Ready to explore
-            <span className="block text-[var(--primary)]">
+            <span className="block text-primary">
               CardioPredict-AI?
             </span>
           </h2>
 
 
-          <p className="mx-auto mt-5 max-w-xl leading-7 text-[var(--text-secondary)]">
+          <p className="mx-auto mt-5 max-w-xl leading-7 text-text-secondary">
             Sign in to access the protected dashboard and
             begin the prediction workflow.
           </p>
@@ -532,7 +532,7 @@ function About() {
 
           <Link
             to="/login"
-            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[var(--primary)] px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-[var(--primary-hover)]"
+            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-primary-hover"
           >
             Start Prediction
             <ArrowRight size={18} />
@@ -561,10 +561,10 @@ function AboutPoint({ text }: AboutPointProps) {
 
       <CheckCircle2
         size={18}
-        className="shrink-0 text-[var(--primary)]"
+        className="shrink-0 text-primary"
       />
 
-      <span className="text-sm text-[var(--text-secondary)]">
+      <span className="text-sm text-text-secondary">
         {text}
       </span>
 
@@ -593,16 +593,16 @@ function SystemStep({
   return (
     <div className="relative text-center">
 
-      <div className="relative mx-auto flex h-24 w-24 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--background)]">
+      <div className="relative mx-auto flex h-24 w-24 items-center justify-center rounded-full border border-border bg-background">
 
-        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--primary)]/10 text-[var(--primary)]">
+        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary">
           {icon}
         </div>
 
       </div>
 
 
-      <p className="mt-5 text-xs font-bold tracking-widest text-[var(--primary)]">
+      <p className="mt-5 text-xs font-bold tracking-widest text-primary">
         {number}
       </p>
 
@@ -612,7 +612,7 @@ function SystemStep({
       </h3>
 
 
-      <p className="mx-auto mt-3 max-w-sm text-sm leading-6 text-[var(--text-secondary)]">
+      <p className="mx-auto mt-3 max-w-sm text-sm leading-6 text-text-secondary">
         {description}
       </p>
 
@@ -637,9 +637,9 @@ function ParameterCard({
   icon,
 }: ParameterCardProps) {
   return (
-    <div className="group flex items-center gap-4 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-4 transition duration-300 hover:-translate-y-0.5 hover:border-[var(--primary)]/40">
+    <div className="group flex items-center gap-4 rounded-xl border border-border bg-surface p-4 transition duration-300 hover:-translate-y-0.5 hover:border-primary/40">
 
-      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[var(--primary)]/10 text-[var(--primary)]">
+      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
         {icon}
       </div>
 
@@ -652,7 +652,7 @@ function ParameterCard({
             {title}
           </p>
 
-          <span className="text-xs font-bold text-[var(--primary)]/50">
+          <span className="text-xs font-bold text-primary/50">
             {number}
           </span>
 
@@ -681,9 +681,9 @@ function FeatureCard({
   description,
 }: FeatureCardProps) {
   return (
-    <div className="group rounded-2xl border border-[var(--border)] bg-[var(--background)] p-6 transition duration-300 hover:-translate-y-1 hover:border-[var(--primary)]/40">
+    <div className="group rounded-2xl border border-border bg-background p-6 transition duration-300 hover:-translate-y-1 hover:border-primary/40">
 
-      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--primary)]/10 text-[var(--primary)] transition group-hover:bg-[var(--primary)] group-hover:text-white">
+      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-white">
         {icon}
       </div>
 
@@ -693,7 +693,7 @@ function FeatureCard({
       </h3>
 
 
-      <p className="mt-3 text-sm leading-6 text-[var(--text-secondary)]">
+      <p className="mt-3 text-sm leading-6 text-text-secondary">
         {description}
       </p>
 
@@ -718,9 +718,9 @@ function WhyCard({
   description,
 }: WhyCardProps) {
   return (
-    <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-7 text-center transition duration-300 hover:-translate-y-1 hover:border-[var(--primary)]/40">
+    <div className="rounded-2xl border border-border bg-surface p-7 text-center transition duration-300 hover:-translate-y-1 hover:border-primary/40">
 
-      <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--primary)]/10 text-[var(--primary)]">
+      <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
         {icon}
       </div>
 
@@ -730,7 +730,7 @@ function WhyCard({
       </h3>
 
 
-      <p className="mt-3 text-sm leading-6 text-[var(--text-secondary)]">
+      <p className="mt-3 text-sm leading-6 text-text-secondary">
         {description}
       </p>
 

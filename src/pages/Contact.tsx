@@ -52,45 +52,45 @@ function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--background)] text-[var(--text-primary)]">
+    <div className="min-h-screen bg-background text-text-primary">
 
       {/* =========================================================
           HERO
       ========================================================= */}
 
-      <section className="relative overflow-hidden border-b border-[var(--border)]">
+      <section className="relative overflow-hidden border-b border-border">
 
         {/* Background decoration */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div className="absolute left-1/2 top-[-180px] h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-[var(--primary)]/10 blur-3xl" />
+          <div className="absolute left-1/2 -top-45 h-105 w-105 -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
 
-          <div className="absolute right-[-120px] top-40 h-80 w-80 rounded-full bg-[var(--primary)]/5 blur-3xl" />
+          <div className="absolute -right-30 top-40 h-80 w-80 rounded-full bg-primary/5 blur-3xl" />
 
-          <div className="absolute bottom-[-150px] left-[-100px] h-72 w-72 rounded-full bg-[var(--primary)]/5 blur-3xl" />
+          <div className="absolute -bottom-37.5 -left-25 h-72 w-72 rounded-full bg-primary/5 blur-3xl" />
         </div>
 
 
         <div className="relative mx-auto max-w-5xl px-5 py-20 text-center sm:px-8 lg:py-28">
 
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--primary)]/10 text-[var(--primary)]">
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
             <MessageSquare size={28} />
           </div>
 
 
-          <p className="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--primary)]">
+          <p className="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
             Contact CardioPredict-AI
           </p>
 
 
           <h1 className="mt-4 text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
             Let's connect.
-            <span className="block text-[var(--primary)]">
+            <span className="block text-primary">
               We're listening.
             </span>
           </h1>
 
 
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-[var(--text-secondary)] sm:text-lg">
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-text-secondary sm:text-lg">
             Have a question about CardioPredict-AI, the prediction
             system, or the dashboard? Send us a message and let us
             know how we can help.
@@ -113,9 +113,9 @@ function Contact() {
               LEFT SIDE
           ===================================================== */}
 
-          <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-7 sm:p-9">
+          <div className="rounded-2xl border border-border bg-surface p-7 sm:p-9">
 
-            <p className="text-sm font-semibold uppercase tracking-wider text-[var(--primary)]">
+            <p className="text-sm font-semibold uppercase tracking-wider text-primary">
               Get In Touch
             </p>
 
@@ -125,7 +125,7 @@ function Contact() {
             </h2>
 
 
-            <p className="mt-4 leading-7 text-[var(--text-secondary)]">
+            <p className="mt-4 leading-7 text-text-secondary">
               Whether you have a question, need technical help,
               or simply want to share feedback, we'd love to hear
               from you.
@@ -166,13 +166,13 @@ function Contact() {
 
 
             {/* Divider */}
-            <div className="my-8 h-px bg-[var(--border)]" />
+            <div className="my-8 h-px bg-border" />
 
 
             {/* Email */}
             <div className="flex items-start gap-4">
 
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[var(--primary)]/10 text-[var(--primary)]">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
                 <Mail size={19} />
               </div>
 
@@ -183,7 +183,7 @@ function Contact() {
                   Email
                 </p>
 
-                <p className="mt-1 text-sm text-[var(--text-secondary)]">
+                <p className="mt-1 text-sm text-text-secondary">
                   Contact details coming soon
                 </p>
 
@@ -198,11 +198,11 @@ function Contact() {
               RIGHT SIDE FORM
           ===================================================== */}
 
-          <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-7 sm:p-9">
+          <div className="rounded-2xl border border-border bg-surface p-7 sm:p-9">
 
             <div>
 
-              <p className="text-sm font-semibold uppercase tracking-wider text-[var(--primary)]">
+              <p className="text-sm font-semibold uppercase tracking-wider text-primary">
                 Send A Message
               </p>
 
@@ -212,7 +212,7 @@ function Contact() {
               </h2>
 
 
-              <p className="mt-4 text-sm leading-6 text-[var(--text-secondary)]">
+              <p className="mt-4 text-sm leading-6 text-text-secondary">
                 Fill out the form below and submit your message.
               </p>
 
@@ -245,7 +245,7 @@ function Contact() {
                     onChange={handleChange}
                     placeholder="Your name"
                     required
-                    className="w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-4 py-3 text-sm outline-none transition placeholder:text-[var(--text-secondary)]/60 focus:border-[var(--primary)]"
+                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition placeholder:text-text-secondary/60 focus:border-primary"
                   />
 
                 </div>
@@ -269,7 +269,7 @@ function Contact() {
                     onChange={handleChange}
                     placeholder="you@example.com"
                     required
-                    className="w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-4 py-3 text-sm outline-none transition placeholder:text-[var(--text-secondary)]/60 focus:border-[var(--primary)]"
+                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition placeholder:text-text-secondary/60 focus:border-primary"
                   />
 
                 </div>
@@ -296,7 +296,7 @@ function Contact() {
                   onChange={handleChange}
                   placeholder="What would you like to talk about?"
                   required
-                  className="w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-4 py-3 text-sm outline-none transition placeholder:text-[var(--text-secondary)]/60 focus:border-[var(--primary)]"
+                  className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition placeholder:text-text-secondary/60 focus:border-primary"
                 />
 
               </div>
@@ -321,7 +321,7 @@ function Contact() {
                   placeholder="Write your message here..."
                   rows={6}
                   required
-                  className="w-full resize-none rounded-lg border border-[var(--border)] bg-[var(--background)] px-4 py-3 text-sm outline-none transition placeholder:text-[var(--text-secondary)]/60 focus:border-[var(--primary)]"
+                  className="w-full resize-none rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition placeholder:text-text-secondary/60 focus:border-primary"
                 />
 
               </div>
@@ -330,7 +330,7 @@ function Contact() {
               {/* Submit */}
               <button
                 type="submit"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[var(--primary)] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[var(--primary-hover)]"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-primary-hover"
               >
                 Send Message
                 <Send size={17} />
@@ -349,13 +349,13 @@ function Contact() {
           HOW CAN WE HELP
       ========================================================= */}
 
-      <section className="border-y border-[var(--border)] bg-[var(--surface)]">
+      <section className="border-y border-border bg-surface">
 
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10 lg:py-24">
 
           <div className="mx-auto max-w-3xl text-center">
 
-            <p className="text-sm font-semibold uppercase tracking-wider text-[var(--primary)]">
+            <p className="text-sm font-semibold uppercase tracking-wider text-primary">
               Support
             </p>
 
@@ -365,7 +365,7 @@ function Contact() {
             </h2>
 
 
-            <p className="mt-5 leading-7 text-[var(--text-secondary)]">
+            <p className="mt-5 leading-7 text-text-secondary">
               Choose the area that best matches your question.
             </p>
 
@@ -409,7 +409,7 @@ function Contact() {
 
         <div className="text-center">
 
-          <p className="text-sm font-semibold uppercase tracking-wider text-[var(--primary)]">
+          <p className="text-sm font-semibold uppercase tracking-wider text-primary">
             Quick Questions
           </p>
 
@@ -444,11 +444,11 @@ function Contact() {
 
       <section className="px-5 pb-20 sm:px-8 lg:px-10 lg:pb-28">
 
-        <div className="mx-auto max-w-5xl rounded-2xl border border-[var(--primary)]/20 bg-[var(--primary)]/5 p-6 sm:p-8">
+        <div className="mx-auto max-w-5xl rounded-2xl border border-primary/20 bg-primary/5 p-6 sm:p-8">
 
           <div className="flex gap-4">
 
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[var(--primary)]/10 text-[var(--primary)]">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <HeartIcon />
             </div>
 
@@ -460,7 +460,7 @@ function Contact() {
               </h3>
 
 
-              <p className="mt-2 text-sm leading-6 text-[var(--text-secondary)]">
+              <p className="mt-2 text-sm leading-6 text-text-secondary">
                 CardioPredict-AI is intended for educational
                 and technological purposes. It is not a substitute
                 for professional medical advice, diagnosis, or
@@ -481,24 +481,24 @@ function Contact() {
           FINAL CTA
       ========================================================= */}
 
-      <section className="border-t border-[var(--border)]">
+      <section className="border-t border-border">
 
         <div className="mx-auto max-w-4xl px-5 py-20 text-center sm:px-8 lg:py-24">
 
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--primary)]/10 text-[var(--primary)]">
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
             <HeartIcon />
           </div>
 
 
           <h2 className="mt-6 text-3xl font-bold tracking-tight sm:text-4xl">
             Ready to explore
-            <span className="block text-[var(--primary)]">
+            <span className="block text-primary">
               CardioPredict-AI?
             </span>
           </h2>
 
 
-          <p className="mx-auto mt-5 max-w-xl leading-7 text-[var(--text-secondary)]">
+          <p className="mx-auto mt-5 max-w-xl leading-7 text-text-secondary">
             Sign in to access your dashboard and explore the
             CardioPredict-AI prediction workflow.
           </p>
@@ -506,7 +506,7 @@ function Contact() {
 
           <a
             href="/login"
-            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[var(--primary)] px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-[var(--primary-hover)]"
+            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-primary-hover"
           >
             Go to Login
             <ArrowRight size={18} />
@@ -522,11 +522,11 @@ function Contact() {
       ========================================================= */}
 
       {submitted && (
-        <div className="fixed bottom-5 right-5 z-[100] w-[calc(100%-40px)] max-w-sm rounded-xl border border-[var(--border)] bg-[var(--surface)] p-5 shadow-2xl">
+        <div className="fixed bottom-5 right-5 z-100 w-[calc(100%-40px)] max-w-sm rounded-xl border border-border bg-surface p-5 shadow-2xl">
 
           <div className="flex items-start gap-4">
 
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--primary)]/10 text-[var(--primary)]">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
               <CheckCircle2 size={21} />
             </div>
 
@@ -538,7 +538,7 @@ function Contact() {
               </h3>
 
 
-              <p className="mt-1 text-sm leading-5 text-[var(--text-secondary)]">
+              <p className="mt-1 text-sm leading-5 text-text-secondary">
                 Your message has been received successfully.
               </p>
 
@@ -548,7 +548,7 @@ function Contact() {
             <button
               type="button"
               onClick={closeSuccessMessage}
-              className="text-[var(--text-secondary)] transition hover:text-[var(--text-primary)]"
+              className="text-text-secondary transition hover:text-text-primary"
               aria-label="Close notification"
             >
               <X size={18} />
@@ -582,7 +582,7 @@ function ContactOption({
   return (
     <div className="flex gap-4">
 
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[var(--primary)]/10 text-[var(--primary)]">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
         {icon}
       </div>
 
@@ -594,7 +594,7 @@ function ContactOption({
         </h3>
 
 
-        <p className="mt-1 text-sm leading-5 text-[var(--text-secondary)]">
+        <p className="mt-1 text-sm leading-5 text-text-secondary">
           {description}
         </p>
 
@@ -621,9 +621,9 @@ function SupportCard({
   description,
 }: SupportCardProps) {
   return (
-    <div className="rounded-2xl border border-[var(--border)] bg-[var(--background)] p-7 text-center transition duration-300 hover:-translate-y-1 hover:border-[var(--primary)]/40">
+    <div className="rounded-2xl border border-border bg-background p-7 text-center transition duration-300 hover:-translate-y-1 hover:border-primary/40">
 
-      <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--primary)]/10 text-[var(--primary)]">
+      <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
         {icon}
       </div>
 
@@ -633,7 +633,7 @@ function SupportCard({
       </h3>
 
 
-      <p className="mt-3 text-sm leading-6 text-[var(--text-secondary)]">
+      <p className="mt-3 text-sm leading-6 text-text-secondary">
         {description}
       </p>
 
@@ -654,13 +654,13 @@ function QuestionRow({
   text,
 }: QuestionRowProps) {
   return (
-    <div className="flex items-center justify-between gap-4 rounded-xl border border-[var(--border)] bg-[var(--surface)] px-5 py-4 transition hover:border-[var(--primary)]/40">
+    <div className="flex items-center justify-between gap-4 rounded-xl border border-border bg-surface px-5 py-4 transition hover:border-primary/40">
 
       <div className="flex items-center gap-3">
 
         <CircleHelp
           size={18}
-          className="shrink-0 text-[var(--primary)]"
+          className="shrink-0 text-primary"
         />
 
         <span className="text-sm font-medium">
@@ -672,7 +672,7 @@ function QuestionRow({
 
       <ArrowRight
         size={17}
-        className="shrink-0 text-[var(--text-secondary)]"
+        className="shrink-0 text-text-secondary"
       />
 
     </div>

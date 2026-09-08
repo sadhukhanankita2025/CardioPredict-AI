@@ -75,7 +75,7 @@ function DashboardHeader() {
 
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-50 h-20 border-b border-[var(--border)] bg-[var(--background)]">
+    <header className="fixed left-0 right-0 top-0 z-50 h-20 border-b border-border bg-background">
 
       <div className="flex h-full items-center justify-between px-5 lg:px-8">
 
@@ -87,7 +87,7 @@ function DashboardHeader() {
           <img
             src={darkMode ? darkLogo : lightLogo}
             alt="CardioPredict-AI"
-            className="w-[185px]"
+            className="w-46.25"
           />
         </a>
 
@@ -104,7 +104,7 @@ function DashboardHeader() {
             <button
               type="button"
               onClick={() => setProfileOpen((previous) => !previous)}
-              className="flex items-center gap-2 rounded-lg px-3 py-2 text-[var(--text-secondary)] transition hover:bg-[var(--surface)] hover:text-[var(--text-primary)]"
+              className="flex items-center gap-2 rounded-lg px-3 py-2 text-text-secondary transition hover:bg-surface hover:text-text-primary"
               aria-expanded={profileOpen}
               aria-haspopup="menu"
             >
@@ -119,7 +119,7 @@ function DashboardHeader() {
             {/* Profile Dropdown */}
             {profileOpen && (
               <div
-                className="absolute right-0 top-12 w-52 overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--surface)] shadow-lg"
+                className="absolute right-0 top-12 w-52 overflow-hidden rounded-xl border border-border bg-surface shadow-lg"
                 role="menu"
               >
 
@@ -127,7 +127,7 @@ function DashboardHeader() {
                 <button
                   type="button"
                   onClick={handleSwitchAccount}
-                  className="flex w-full items-center gap-3 px-4 py-3 text-left text-sm font-medium text-[var(--text-secondary)] transition hover:bg-[var(--background)] hover:text-[var(--text-primary)]"
+                  className="flex w-full items-center gap-3 px-4 py-3 text-left text-sm font-medium text-text-secondary transition hover:bg-background hover:text-text-primary"
                   role="menuitem"
                 >
                   <UserCog size={18} />
@@ -139,14 +139,14 @@ function DashboardHeader() {
 
 
                 {/* Divider */}
-                <div className="h-px bg-[var(--border)]" />
+                <div className="h-px bg-border" />
 
 
                 {/* Logout */}
                 <button
                   type="button"
                   onClick={handleLogout}
-                  className="flex w-full items-center gap-3 px-4 py-3 text-left text-sm font-medium text-[var(--text-secondary)] transition hover:bg-[var(--background)] hover:text-[var(--primary)]"
+                  className="flex w-full items-center gap-3 px-4 py-3 text-left text-sm font-medium text-text-secondary transition hover:bg-background hover:text-primary"
                   role="menuitem"
                 >
                   <LogOut size={18} />
@@ -166,7 +166,7 @@ function DashboardHeader() {
           <button
             type="button"
             onClick={() => setDarkMode((previous) => !previous)}
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--border)] bg-[var(--surface)] text-[var(--text-primary)] transition hover:border-[var(--primary)] hover:text-[var(--primary)]"
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-surface text-text-primary transition hover:border-primary hover:text-primary"
             aria-label={
               darkMode
                 ? 'Switch to light mode'

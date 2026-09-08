@@ -28,7 +28,7 @@ import DashboardLayout from './dashboard/DashboardLayout';
 
 function PublicLayout() {
   return (
-    <div className="min-h-screen bg-[var(--background)] text-[var(--text-primary)]">
+    <div className="min-h-screen bg-background text-text-primary">
       
       <Navbar />
 

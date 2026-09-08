@@ -1,5 +1,3 @@
-import lightLogo from "../components/logo/logolight.png";
-import darkLogo from "../components/logo/logodark.png";
 import { useEffect, useState } from "react";
 import {
   ClipboardList,
@@ -9,6 +7,7 @@ import {
   Search,
 } from "lucide-react";
 import jsPDF from "jspdf";
+import lightLogo from "../components/logo/logolight.png";
 import {
   getPredictionHistory,
   type PredictionRecord,
@@ -38,8 +37,8 @@ function Reports() {
     const margin = 15;
     let y = 15;
 
-    // Professional Header Background
-    pdf.setFillColor(15, 23, 42); // Slate 900
+    // Professional Header Background (Maroon [128, 0, 32])
+    pdf.setFillColor(128, 0, 32); 
     pdf.rect(0, 0, 210, 26, "F");
 
     // Add Logo to PDF Header on the left side (X: 15, Y: 6, Width: 30, Height: 12)
@@ -70,12 +69,14 @@ function Reports() {
     // --- LEFT COLUMN: Patient Info & Clinical Parameters ---
     let leftY = y;
 
-    pdf.setTextColor(15, 23, 42);
+    // Section Titles styled with Maroon color [128, 0, 32]
+    pdf.setTextColor(128, 0, 32);
     pdf.setFontSize(9.5);
     pdf.setFont("helvetica", "bold");
     pdf.text("PATIENT INFORMATION", leftColX, leftY);
     leftY += 5;
 
+    pdf.setTextColor(15, 23, 42); // Reset text color for body data
     pdf.setFont("helvetica", "normal");
     pdf.setFontSize(8.5);
     const patientDetails = [
@@ -90,11 +91,13 @@ function Reports() {
 
     leftY += 3;
 
+    pdf.setTextColor(128, 0, 32);
     pdf.setFont("helvetica", "bold");
     pdf.setFontSize(9.5);
     pdf.text("CLINICAL PARAMETERS", leftColX, leftY);
     leftY += 5;
 
+    pdf.setTextColor(15, 23, 42);
     pdf.setFont("helvetica", "normal");
     pdf.setFontSize(8);
 
@@ -121,6 +124,7 @@ function Reports() {
     // --- RIGHT COLUMN: AI Prediction & Recommendations ---
     let rightY = y;
 
+    pdf.setTextColor(128, 0, 32);
     pdf.setFontSize(9.5);
     pdf.setFont("helvetica", "bold");
     pdf.text("AI PREDICTION ANALYSIS", rightColX, rightY);
@@ -133,10 +137,10 @@ function Reports() {
     pdf.setTextColor(riskColor[0], riskColor[1], riskColor[2]);
     pdf.setFont("helvetica", "bold");
     pdf.text(`Risk Assessment: ${report.riskLevel}`, rightColX, rightY);
-    pdf.setTextColor(51, 65, 85);
     pdf.setFont("helvetica", "normal");
     rightY += 5;
 
+    pdf.setTextColor(15, 23, 42);
     const metrics = [
       `Model Confidence: ${report.modelConfidence.toFixed(1)}%`,
       `Lower Risk Probability: ${(report.class0Probability * 100).toFixed(1)}%`,
@@ -149,11 +153,13 @@ function Reports() {
 
     rightY += 4;
 
+    pdf.setTextColor(128, 0, 32);
     pdf.setFont("helvetica", "bold");
     pdf.setFontSize(9.5);
     pdf.text("CLINICAL RECOMMENDATIONS", rightColX, rightY);
     rightY += 5;
 
+    pdf.setTextColor(15, 23, 42);
     pdf.setFont("helvetica", "normal");
     pdf.setFontSize(8);
 
@@ -216,10 +222,6 @@ function Reports() {
             <p className="mt-2 max-w-2xl text-text-secondary">
               View and download your generated CardioPredict-AI reports.
             </p>
-          </div>
-          <div className="hidden items-center gap-3 sm:flex">
-            <img src={lightLogo} alt="Logo Light" className="h-10 w-auto dark:hidden" />
-            <img src={darkLogo} alt="Logo Dark" className="hidden h-10 w-auto dark:block" />
           </div>
         </div>
 

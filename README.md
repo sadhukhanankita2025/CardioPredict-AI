@@ -380,24 +380,19 @@ git remote -v
 
 # 🧪 Model Prediction Output
 
-The CatBoost model returns:
+The CatBoost model probabilities classify patients into three tiers:
 
-* **Lower Risk (0)** — Low probability of heart disease.
-* **Higher Risk (1)** — High probability of heart disease.
+* **Lower Risk** — Low probability of heart disease (< 40%).
+* **Moderate / Borderline Risk** — Intermediate probability of heart disease (40% to 65%).
+* **Higher Risk** — High probability of heart disease (> 65%).
 
-The API also returns confidence probabilities for both classes.
-
----
+The API also returns confidence probabilities for both model classes.
 
 # 📚 Future Improvements
 
 * User Authentication.
-* Patient Prediction History Dashboard.
-* PDF Medical Report Generation.
 * PostgreSQL Database Integration.
-* Explainable AI (SHAP Feature Importance).
-* Doctor/Admin Dashboard.
-* Deployment with CI/CD.
+
 
 
 

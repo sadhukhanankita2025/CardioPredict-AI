@@ -675,13 +675,13 @@ function Prediction() {
   // ==========================================
 
   return (
-    <div className="bg-background text-text-primary">
+    <div className="bg-background text-text-primary transition-colors duration-300">
       <div className="p-5 sm:p-6 lg:p-8">
 
         {/* Heading */}
 
         <div className="mb-8">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-primary">
+          <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-[#8B1E24] dark:text-red-400">
             AI Prediction
           </p>
 
@@ -712,8 +712,8 @@ function Prediction() {
 
               <div className="flex items-center gap-3">
 
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                  <HeartPulse size={21} />
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#8B1E24]/10 text-[#8B1E24] dark:bg-red-500/15 dark:text-red-400">
+                  <HeartPulse size={22} />
                 </div>
 
                 <div>
@@ -754,7 +754,7 @@ function Prediction() {
                     onChange={handleChange}
                     placeholder="Enter patient name"
                     required
-                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-primary"
+                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-[#8B1E24] dark:focus:border-red-400"
                   />
 
                 </div>
@@ -776,7 +776,7 @@ function Prediction() {
                     min="1"
                     max="120"
                     required
-                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-primary"
+                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-[#8B1E24] dark:focus:border-red-400"
                   />
 
                 </div>
@@ -794,7 +794,7 @@ function Prediction() {
                     value={formData.sex}
                     onChange={handleChange}
                     required
-                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-primary"
+                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-[#8B1E24] dark:focus:border-red-400"
                   >
 
                     <option value="">
@@ -826,7 +826,7 @@ function Prediction() {
                     value={formData.chestPainType}
                     onChange={handleChange}
                     required
-                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-primary"
+                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-[#8B1E24] dark:focus:border-red-400"
                   >
 
                     <option value="">
@@ -869,7 +869,7 @@ function Prediction() {
                     placeholder="mm Hg"
                     min="0"
                     required
-                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-primary"
+                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-[#8B1E24] dark:focus:border-red-400"
                   />
 
                 </div>
@@ -890,7 +890,7 @@ function Prediction() {
                     placeholder="mg/dL"
                     min="0"
                     required
-                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-primary"
+                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-[#8B1E24] dark:focus:border-red-400"
                   />
 
                 </div>
@@ -908,7 +908,7 @@ function Prediction() {
                     value={formData.fastingBS}
                     onChange={handleChange}
                     required
-                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-primary"
+                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-[#8B1E24] dark:focus:border-red-400"
                   >
 
                     <option value="">
@@ -940,7 +940,7 @@ function Prediction() {
                     value={formData.restingECG}
                     onChange={handleChange}
                     required
-                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-primary"
+                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-[#8B1E24] dark:focus:border-red-400"
                   >
 
                     <option value="">
@@ -979,7 +979,7 @@ function Prediction() {
                     placeholder="e.g. 150"
                     min="0"
                     required
-                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-primary"
+                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-[#8B1E24] dark:focus:border-red-400"
                   />
 
                 </div>
@@ -997,7 +997,7 @@ function Prediction() {
                     value={formData.exerciseAngina}
                     onChange={handleChange}
                     required
-                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-primary"
+                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-[#8B1E24] dark:focus:border-red-400"
                   >
 
                     <option value="">
@@ -1033,7 +1033,7 @@ function Prediction() {
                     step="0.1"
                     min="0"
                     required
-                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-primary"
+                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-[#8B1E24] dark:focus:border-red-400"
                   />
 
                 </div>
@@ -1051,7 +1051,7 @@ function Prediction() {
                     value={formData.stSlope}
                     onChange={handleChange}
                     required
-                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-primary"
+                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-[#8B1E24] dark:focus:border-red-400"
                   >
 
                     <option value="">
@@ -1083,7 +1083,7 @@ function Prediction() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 font-semibold text-white transition hover:bg-primary-hover disabled:cursor-not-allowed disabled:opacity-60"
+                  className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-[#8B1E24] dark:bg-red-600 px-5 py-3 font-semibold text-white transition hover:bg-[#72171D] dark:hover:bg-red-700 disabled:cursor-not-allowed disabled:opacity-60 shadow-lg"
                 >
 
                   <Send size={18} />
@@ -1125,8 +1125,8 @@ function Prediction() {
 
               <div className="flex items-center gap-3">
 
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                  <Activity size={21} />
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#8B1E24]/10 text-[#8B1E24] dark:bg-red-500/15 dark:text-red-400">
+                  <Activity size={22} />
                 </div>
 
                 <div>
@@ -1152,18 +1152,18 @@ function Prediction() {
               {/* Error */}
 
               {error && (
-                <div className="rounded-xl border border-primary/30 bg-primary/5 p-5">
+                <div className="rounded-xl border border-red-500/30 bg-red-500/5 p-5">
 
                   <div className="flex items-start gap-3">
 
                     <XCircle
                       size={21}
-                      className="mt-0.5 shrink-0 text-primary"
+                      className="mt-0.5 shrink-0 text-red-500"
                     />
 
                     <div>
 
-                      <p className="font-semibold">
+                      <p className="font-semibold text-red-500">
                         Prediction Failed
                       </p>
 
@@ -1211,18 +1211,25 @@ function Prediction() {
 
                     <div className="flex items-center gap-3">
 
-                      {result.riskLevel ===
-                        "Higher Risk" ? (
-                        <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary">
+                      {result.riskLevel === "Higher Risk" ? (
+                        <div
+                          className="flex h-11 w-11 items-center justify-center rounded-full text-red-600 dark:text-red-400"
+                          style={{ backgroundColor: "rgba(220, 38, 38, 0.1)" }}
+                        >
                           <AlertCircle size={24} />
                         </div>
-                      ) : result.riskLevel ===
-                        "Lower Risk" ? (
-                        <div className="flex h-11 w-11 items-center justify-center rounded-full bg-green-500/10 text-green-500">
+                      ) : result.riskLevel === "Lower Risk" ? (
+                        <div
+                          className="flex h-11 w-11 items-center justify-center rounded-full text-green-600 dark:text-green-400"
+                          style={{ backgroundColor: "rgba(22, 163, 74, 0.1)" }}
+                        >
                           <CheckCircle2 size={24} />
                         </div>
                       ) : (
-                        <div className="flex h-11 w-11 items-center justify-center rounded-full bg-yellow-500/10 text-yellow-500">
+                        <div
+                          className="flex h-11 w-11 items-center justify-center rounded-full text-yellow-600 dark:text-yellow-400"
+                          style={{ backgroundColor: "rgba(202, 138, 4, 0.1)" }}
+                        >
                           <AlertCircle size={24} />
                         </div>
                       )}
@@ -1233,7 +1240,15 @@ function Prediction() {
                           Prediction
                         </p>
 
-                        <h3 className="text-xl font-bold">
+                        <h3
+                          className={`text-xl font-bold ${
+                            result.riskLevel === "Higher Risk"
+                              ? "text-red-600 dark:text-red-400"
+                              : result.riskLevel === "Lower Risk"
+                              ? "text-green-600 dark:text-green-400"
+                              : "text-yellow-600 dark:text-yellow-400"
+                          }`}
+                        >
                           {result.riskLevel}
                         </h3>
 
@@ -1264,11 +1279,18 @@ function Prediction() {
                     <div className="h-2 overflow-hidden rounded-full bg-background">
 
                       <div
-                        className="h-full rounded-full bg-primary transition-all duration-700"
+                        className="h-full rounded-full transition-all duration-700"
                         style={{
-                          width: `${result.probability.class_1 *
+                          backgroundColor:
+                            result.riskLevel === "Higher Risk"
+                              ? "#dc2626"
+                              : result.riskLevel === "Lower Risk"
+                              ? "#16a34a"
+                              : "#ca8a04",
+                          width: `${
+                            result.probability.class_1 *
                             100
-                            }%`,
+                          }%`,
                         }}
                       />
 
@@ -1287,12 +1309,12 @@ function Prediction() {
                     <p className="text-sm leading-6 text-text-secondary">
 
                       {result.riskLevel ===
-                        "Lower Risk"
+                      "Lower Risk"
                         ? "The model probability is below 40%."
                         : result.riskLevel ===
                           "Moderate / Borderline Risk"
-                          ? "The model probability is between 40% and 65%."
-                          : "The model probability is above 65%."}
+                        ? "The model probability is between 40% and 65%."
+                        : "The model probability is above 65%."}
 
                     </p>
 
@@ -1337,7 +1359,7 @@ function Prediction() {
                   <button
                     type="button"
                     onClick={generatePDFReport}
-                    className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 font-semibold text-white transition hover:bg-primary-hover"
+                    className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#8B1E24] dark:bg-red-600 px-5 py-3 font-semibold text-white transition hover:bg-[#72171D] dark:hover:bg-red-700 shadow-lg"
                   >
                     Download PDF Report
                   </button>

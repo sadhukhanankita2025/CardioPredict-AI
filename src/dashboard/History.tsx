@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import {
   CalendarDays,
   Clock3,
@@ -10,7 +9,6 @@ import {
   X,
   Save,
 } from "lucide-react";
-
 import {
   deletePredictionRecord,
   getPredictionHistory,
@@ -28,46 +26,41 @@ function History() {
     setHistory(getPredictionHistory());
   }, []);
 
-  const filteredHistory = history.filter((item) =>
-    item.patientName
-      .toLowerCase()
-      .includes(search.toLowerCase()),
-  );
+  const filteredHistory = history.filter((item) => {
+    const query = search.toLowerCase();
+    return (
+      item.patientName.toLowerCase().includes(query) ||
+      item.riskLevel.toLowerCase().includes(query) ||
+      String(item.id).includes(query)
+    );
+  });
 
   const handleDelete = (id: number) => {
     if (!window.confirm("Delete this prediction record?")) {
       return;
     }
-
     deletePredictionRecord(id);
-
     setHistory(getPredictionHistory());
   };
 
   const handleSaveEdit = () => {
     if (!editingRecord) return;
-
     updatePredictionRecord(editingRecord);
-
     setHistory(getPredictionHistory());
-
     setEditingRecord(null);
   };
 
   return (
-    <div className="bg-background text-text-primary">
+    <div className="bg-background text-text-primary transition-colors duration-300">
       <div className="p-5 sm:p-6 lg:p-8">
-
         {/* Heading */}
         <div className="mb-8">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-primary">
+          <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-[#8B1E24] dark:text-red-400">
             Patient Records
           </p>
-
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
             Prediction History
           </h1>
-
           <p className="mt-2 max-w-2xl text-text-secondary">
             Review and manage your previous AI prediction records.
           </p>
@@ -80,145 +73,111 @@ function History() {
               size={18}
               className="absolute left-4 top-1/2 -translate-y-1/2 text-text-muted"
             />
-
             <input
               type="text"
-              placeholder="Search patient records..."
+              placeholder="Search by patient name, risk level, or ID..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full rounded-lg border border-border bg-surface py-3 pl-11 pr-4 text-sm outline-none transition focus:border-primary"
+              className="w-full rounded-lg border border-border bg-surface py-3 pl-11 pr-4 text-sm outline-none transition focus:border-[#8B1E24] dark:focus:border-red-400"
             />
           </div>
         </div>
 
         {/* History Card */}
         <section className="overflow-hidden rounded-2xl border border-border bg-surface">
-
           {/* Header */}
           <div className="border-b border-border p-6">
             <div className="flex items-center gap-3">
-
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                <HistoryIcon size={20} />
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#8B1E24]/10 text-[#8B1E24] dark:bg-red-500/15 dark:text-red-400">
+                <HistoryIcon size={22} />
               </div>
-
               <div>
-                <h2 className="font-semibold">
-                  Prediction Records
-                </h2>
-
+                <h2 className="font-semibold">Prediction Records</h2>
                 <p className="text-sm text-text-muted">
-                  {history.length} records
+                  {filteredHistory.length} of {history.length} records shown
                 </p>
               </div>
-
             </div>
           </div>
 
           {/* Empty */}
           {filteredHistory.length === 0 ? (
             <div className="px-6 py-16 text-center">
-
               <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-background text-text-muted">
                 <HistoryIcon size={28} />
               </div>
-
-              <h3 className="text-lg font-semibold">
-                No Prediction History
-              </h3>
-
+              <h3 className="text-lg font-semibold">No Matching Records Found</h3>
               <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-text-secondary">
-                Your completed predictions will appear here.
+                Try searching with a different patient name or keyword.
               </p>
-
             </div>
           ) : (
-
             <div className="divide-y divide-border">
-
               {filteredHistory.map((item) => (
-
                 <div
                   key={item.id}
-                  className="p-6 transition hover:bg-background"
+                  className="p-6 transition hover:bg-background/50"
                 >
-
                   <div className="flex flex-col justify-between gap-5 lg:flex-row">
-
                     {/* Patient Info */}
                     <div>
-
-                      <p className="text-lg font-semibold">
-                        {item.patientName}
-                      </p>
-
-                      <p className="mt-1 text-sm text-text-muted">
-                        Prediction #{item.id}
-                      </p>
-
+                      <p className="text-lg font-semibold">{item.patientName}</p>
+                      <p className="mt-1 text-sm text-text-muted">Prediction #{item.id}</p>
                       <div className="mt-3 flex flex-wrap gap-4 text-xs text-text-muted">
-
                         <span className="flex items-center gap-1">
                           <CalendarDays size={14} />
                           {item.date}
                         </span>
-
                         <span className="flex items-center gap-1">
                           <Clock3 size={14} />
                           {item.time}
                         </span>
-
                       </div>
-
                     </div>
 
                     {/* Result */}
                     <div className="flex flex-col gap-3 lg:items-end">
-
                       <div>
-                        <p className="font-semibold">
+                        <p
+                          className={`font-semibold ${
+                            item.riskLevel === "Higher Risk"
+                              ? "text-red-600 dark:text-red-400"
+                              : item.riskLevel === "Lower Risk"
+                              ? "text-green-600 dark:text-green-400"
+                              : "text-yellow-600 dark:text-yellow-400"
+                          }`}
+                        >
                           {item.riskLevel}
                         </p>
-
                         <p className="mt-1 text-xs text-text-muted">
-                          Model Confidence:{" "}
-                          {item.modelConfidence.toFixed(1)}%
+                          Model Confidence: {item.modelConfidence.toFixed(1)}%
                         </p>
                       </div>
 
                       <div className="flex gap-2">
-
                         <button
                           type="button"
-                          onClick={() =>
-                            setEditingRecord(item)
-                          }
-                          className="flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm transition hover:border-primary hover:text-primary"
+                          onClick={() => setEditingRecord(item)}
+                          className="group flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm transition hover:border-[#8B1E24] hover:text-[#8B1E24] hover:[text-shadow:0_0_12px_rgba(139,30,36,0.5)] dark:hover:border-red-400 dark:hover:text-red-400 dark:hover:[text-shadow:0_0_12px_rgba(239,68,68,0.5)]"
                         >
-                          <Pencil size={15} />
+                          <Pencil size={15} className="transition-transform duration-300 group-hover:scale-110" />
                           Edit
                         </button>
 
                         <button
                           type="button"
-                          onClick={() =>
-                            handleDelete(item.id)
-                          }
-                          className="flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm transition hover:border-red-500 hover:text-red-500"
+                          onClick={() => handleDelete(item.id)}
+                          className="group flex items-center gap-2 rounded-lg border border-border bg-[#8B1E24]/10 px-3 py-2 text-sm text-[#8B1E24] transition hover:bg-[#8B1E24] hover:text-white dark:bg-red-500/15 dark:text-red-400 dark:hover:bg-red-600 dark:hover:text-white"
                         >
-                          <Trash2 size={15} />
+                          <Trash2 size={15} className="transition-transform duration-300 group-hover:scale-110" />
                           Delete
                         </button>
-
                       </div>
-
                     </div>
-
                   </div>
 
                   {/* Patient Parameters */}
                   <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-
                     <Info label="Age" value={item.age} />
                     <Info label="Sex" value={item.sex} />
                     <Info label="Chest Pain" value={item.chestPainType} />
@@ -230,49 +189,34 @@ function History() {
                     <Info label="Exercise Angina" value={item.exerciseAngina} />
                     <Info label="Oldpeak" value={item.oldpeak} />
                     <Info label="ST Slope" value={item.stSlope} />
-
                   </div>
-
                 </div>
-
               ))}
-
             </div>
-
           )}
-
         </section>
 
         {/* Edit Modal */}
         {editingRecord && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
-
             <div className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl border border-border bg-surface">
-
               <div className="flex items-center justify-between border-b border-border p-6">
-
                 <div>
-                  <h2 className="text-xl font-semibold">
-                    Edit Patient Record
-                  </h2>
-
+                  <h2 className="text-xl font-semibold">Edit Patient Record</h2>
                   <p className="mt-1 text-sm text-text-muted">
                     Update the stored patient information.
                   </p>
                 </div>
-
                 <button
                   type="button"
                   onClick={() => setEditingRecord(null)}
-                  className="rounded-lg p-2 hover:bg-background"
+                  className="rounded-lg p-2 hover:bg-background transition"
                 >
                   <X size={20} />
                 </button>
-
               </div>
 
               <div className="grid gap-4 p-6 sm:grid-cols-2">
-
                 {(
                   [
                     ["patientName", "Patient Name"],
@@ -289,13 +233,10 @@ function History() {
                     ["stSlope", "ST Slope"],
                   ] as const
                 ).map(([key, label]) => (
-
                   <div key={key}>
-
                     <label className="mb-2 block text-sm font-medium">
                       {label}
                     </label>
-
                     <input
                       value={editingRecord[key]}
                       onChange={(e) =>
@@ -304,21 +245,17 @@ function History() {
                           [key]: e.target.value,
                         })
                       }
-                      className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none focus:border-primary"
+                      className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-[#8B1E24] dark:focus:border-red-400"
                     />
-
                   </div>
-
                 ))}
-
               </div>
 
               <div className="flex justify-end gap-3 border-t border-border p-6">
-
                 <button
                   type="button"
                   onClick={() => setEditingRecord(null)}
-                  className="rounded-lg border border-border px-5 py-3 text-sm"
+                  className="rounded-lg border border-border px-5 py-3 text-sm transition hover:bg-background"
                 >
                   Cancel
                 </button>
@@ -326,40 +263,25 @@ function History() {
                 <button
                   type="button"
                   onClick={handleSaveEdit}
-                  className="flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-white"
+                  className="flex items-center gap-2 rounded-lg bg-[#8B1E24] dark:bg-red-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#72171D] dark:hover:bg-red-700 shadow-lg"
                 >
                   <Save size={16} />
                   Save Changes
                 </button>
-
               </div>
-
             </div>
-
           </div>
         )}
-
       </div>
     </div>
   );
 }
 
-function Info({
-  label,
-  value,
-}: {
-  label: string;
-  value: string;
-}) {
+function Info({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-lg border border-border bg-background p-3">
-      <p className="text-xs text-text-muted">
-        {label}
-      </p>
-
-      <p className="mt-1 text-sm font-medium">
-        {value}
-      </p>
+      <p className="text-xs text-text-muted">{label}</p>
+      <p className="mt-1 text-sm font-medium">{value}</p>
     </div>
   );
 }

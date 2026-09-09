@@ -41,6 +41,8 @@ function DashboardSideNav() {
         border-r
         border-border
         bg-background
+        transition-colors
+        duration-300
         lg:block
       "
     >
@@ -62,14 +64,13 @@ function DashboardSideNav() {
                     to={item.path}
                     end={item.path === '/dashboard'}
                     className={({ isActive }) =>
-                      `flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium transition-all ${
-                        isActive
-                          ? 'bg-primary/10 text-primary'
-                          : 'text-text-secondary hover:bg-surface hover:text-text-primary'
+                      `group flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium transition-all ${isActive
+                        ? 'bg-[#8B1E24]/10 text-[#8B1E24] dark:bg-red-500/15 dark:text-red-400'
+                        : 'text-text-secondary hover:bg-surface hover:text-[#8B1E24] hover:[text-shadow:0_0_12px_rgba(139,30,36,0.5)] dark:hover:text-red-400 dark:hover:[text-shadow:0_0_12px_rgba(239,68,68,0.5)]'
                       }`
                     }
                   >
-                    <Icon size={19} />
+                    <Icon size={19} className="transition-transform duration-300 group-hover:scale-110" />
                     <span>{item.name}</span>
                   </NavLink>
                 );
@@ -83,9 +84,9 @@ function DashboardSideNav() {
           {/* Settings */}
           <button
             type="button"
-            className="flex w-full items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium text-text-secondary transition-all hover:bg-surface hover:text-text-primary"
+            className="group flex w-full items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium text-text-secondary transition-all hover:bg-surface hover:text-[#8B1E24] hover:[text-shadow:0_0_12px_rgba(139,30,36,0.5)] dark:hover:text-red-400 dark:hover:[text-shadow:0_0_12px_rgba(239,68,68,0.5)]"
           >
-            <Settings size={19} />
+            <Settings size={19} className="transition-transform duration-300 group-hover:scale-110 group-hover:rotate-45" />
             <span>Settings</span>
           </button>
         </nav>

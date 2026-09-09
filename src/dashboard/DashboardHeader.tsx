@@ -15,7 +15,7 @@ function DashboardHeader() {
   const navigate = useNavigate();
 
   const [darkMode, setDarkMode] = useState(() => {
-    return document.documentElement.getAttribute('data-theme') === 'dark';
+    return document.documentElement.getAttribute('data-theme') === 'dark' || document.documentElement.classList.contains('dark');
   });
 
   const [profileOpen, setProfileOpen] = useState(false);
@@ -27,6 +27,12 @@ function DashboardHeader() {
       'data-theme',
       darkMode ? 'dark' : 'light'
     );
+
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
 
     localStorage.setItem(
       'theme',
@@ -75,7 +81,7 @@ function DashboardHeader() {
 
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-50 h-20 border-b border-border bg-background">
+    <header className="fixed left-0 right-0 top-0 z-50 h-20 bg-background transition-colors duration-300">
 
       <div className="flex h-full items-center justify-between px-5 lg:px-8">
 
@@ -104,7 +110,7 @@ function DashboardHeader() {
             <button
               type="button"
               onClick={() => setProfileOpen((previous) => !previous)}
-              className="flex items-center gap-2 rounded-lg px-3 py-2 text-text-secondary transition hover:bg-surface hover:text-text-primary"
+              className="flex items-center gap-2 rounded-lg px-3 py-2 text-text-secondary transition hover:bg-surface hover:text-[#8B1E24] hover:[text-shadow:0_0_12px_rgba(139,30,36,0.5)] dark:hover:text-red-400 dark:hover:[text-shadow:0_0_12px_rgba(239,68,68,0.5)]"
               aria-expanded={profileOpen}
               aria-haspopup="menu"
             >
@@ -127,7 +133,7 @@ function DashboardHeader() {
                 <button
                   type="button"
                   onClick={handleSwitchAccount}
-                  className="flex w-full items-center gap-3 px-4 py-3 text-left text-sm font-medium text-text-secondary transition hover:bg-background hover:text-text-primary"
+                  className="flex w-full items-center gap-3 px-4 py-3 text-left text-sm font-medium text-text-secondary transition hover:bg-background hover:text-[#8B1E24] hover:[text-shadow:0_0_12px_rgba(139,30,36,0.5)] dark:hover:text-red-400 dark:hover:[text-shadow:0_0_12px_rgba(239,68,68,0.5)]"
                   role="menuitem"
                 >
                   <UserCog size={18} />
@@ -146,7 +152,7 @@ function DashboardHeader() {
                 <button
                   type="button"
                   onClick={handleLogout}
-                  className="flex w-full items-center gap-3 px-4 py-3 text-left text-sm font-medium text-text-secondary transition hover:bg-background hover:text-primary"
+                  className="flex w-full items-center gap-3 px-4 py-3 text-left text-sm font-medium text-text-secondary transition hover:bg-background hover:text-[#8B1E24] hover:[text-shadow:0_0_12px_rgba(139,30,36,0.5)] dark:hover:text-red-400 dark:hover:[text-shadow:0_0_12px_rgba(239,68,68,0.5)]"
                   role="menuitem"
                 >
                   <LogOut size={18} />
@@ -166,7 +172,7 @@ function DashboardHeader() {
           <button
             type="button"
             onClick={() => setDarkMode((previous) => !previous)}
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-surface text-text-primary transition hover:border-primary hover:text-primary"
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-surface text-text-primary transition hover:border-[#8B1E24] hover:text-[#8B1E24] hover:shadow-[0_0_10px_rgba(139,30,36,0.5)] dark:hover:border-red-400 dark:hover:text-red-400 dark:hover:shadow-[0_0_10px_rgba(239,68,68,0.5)]"
             aria-label={
               darkMode
                 ? 'Switch to light mode'

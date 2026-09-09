@@ -8,15 +8,15 @@ function Footer() {
   const navigate = useNavigate();
 
   const [darkMode, setDarkMode] = useState(() => {
-    return document.documentElement.getAttribute('data-theme') === 'dark';
+    return document.documentElement.getAttribute('data-theme') === 'dark' || document.documentElement.classList.contains('dark');
   });
 
   // Watch for theme changes made by Navbar
   useEffect(() => {
     const checkTheme = () => {
-      setDarkMode(
-        document.documentElement.getAttribute('data-theme') === 'dark'
-      );
+      const themeAttr = document.documentElement.getAttribute('data-theme');
+      const hasDarkClass = document.documentElement.classList.contains('dark');
+      setDarkMode(themeAttr === 'dark' || hasDarkClass);
     };
 
     checkTheme();
@@ -25,7 +25,7 @@ function Footer() {
 
     observer.observe(document.documentElement, {
       attributes: true,
-      attributeFilter: ['data-theme'],
+      attributeFilter: ['data-theme', 'class'],
     });
 
     return () => observer.disconnect();
@@ -34,7 +34,7 @@ function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border bg-surface text-text-primary">
+    <footer className="bg-surface text-text-primary transition-colors duration-300">
 
       <div className="mx-auto w-[92%] max-w-350 py-14">
 

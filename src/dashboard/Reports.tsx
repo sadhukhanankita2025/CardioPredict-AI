@@ -208,12 +208,12 @@ function Reports() {
   };
 
   return (
-    <div className="bg-background text-text-primary">
+    <div className="bg-background text-text-primary transition-colors duration-300">
       <div className="p-5 sm:p-6 lg:p-8">
         {/* Heading */}
         <div className="mb-8 flex items-center justify-between">
           <div>
-            <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-primary">
+            <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-[#8B1E24] dark:text-red-400">
               Medical Reports
             </p>
             <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
@@ -237,7 +237,7 @@ function Reports() {
               placeholder="Search reports..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full rounded-lg border border-border bg-surface py-3 pl-11 pr-4 text-sm outline-none transition focus:border-primary"
+              className="w-full rounded-lg border border-border bg-surface py-3 pl-11 pr-4 text-sm outline-none transition focus:border-[#8B1E24] dark:focus:border-red-400"
             />
           </div>
         </div>
@@ -246,7 +246,7 @@ function Reports() {
         <section className="overflow-hidden rounded-2xl border border-border bg-surface">
           <div className="border-b border-border p-6">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#8B1E24]/10 text-[#8B1E24] dark:bg-red-500/15 dark:text-red-400">
                 <FileText size={20} />
               </div>
               <div>
@@ -273,11 +273,11 @@ function Reports() {
               {filteredReports.map((report) => (
                 <div
                   key={report.id}
-                  className="flex flex-col justify-between gap-4 p-6 transition hover:bg-background sm:flex-row sm:items-center"
+                  className="flex flex-col justify-between gap-4 p-6 transition hover:bg-background/50 sm:flex-row sm:items-center"
                 >
                   {/* Report Info */}
                   <div className="flex items-center gap-4">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-background text-primary">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#8B1E24]/10 text-[#8B1E24] dark:bg-red-500/15 dark:text-red-400">
                       <HeartPulse size={20} />
                     </div>
                     <div>
@@ -290,13 +290,19 @@ function Reports() {
 
                   {/* Actions */}
                   <div className="flex items-center gap-4">
-                    <span className="text-sm font-medium">
+                    <span className={`text-sm font-medium ${
+                      report.riskLevel === "Higher Risk"
+                        ? "text-red-600 dark:text-red-400"
+                        : report.riskLevel === "Lower Risk"
+                        ? "text-green-600 dark:text-green-400"
+                        : "text-yellow-600 dark:text-yellow-400"
+                    }`}>
                       {report.riskLevel}
                     </span>
                     <button
                       type="button"
                       onClick={() => generatePDF(report)}
-                      className="flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-medium transition hover:border-primary hover:text-primary"
+                      className="flex items-center gap-2 rounded-lg bg-[#8B1E24] dark:bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#72171D] dark:hover:bg-red-700 shadow-lg"
                     >
                       <Download size={16} />
                       Download

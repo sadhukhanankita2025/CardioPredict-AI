@@ -1,34 +1,40 @@
-import { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-import lightLogo from "./logo/logolight.png";
-import darkLogo from "./logo/logodark.png";
+import lightLogo from './logo/logolight.png';
+import darkLogo from './logo/logodark.png';
 
 function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
 
   const [darkMode, setDarkMode] = useState(() => {
-    return document.documentElement.getAttribute("data-theme") === "dark";
+    return document.documentElement.getAttribute('data-theme') === 'dark' || document.documentElement.classList.contains('dark');
   });
 
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     document.documentElement.setAttribute(
-      "data-theme",
-      darkMode ? "dark" : "light",
+      'data-theme',
+      darkMode ? 'dark' : 'light',
     );
 
-    localStorage.setItem("theme", darkMode ? "dark" : "light");
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    localStorage.setItem('theme', darkMode ? 'dark' : 'light');
   }, [darkMode]);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
+    const savedTheme = localStorage.getItem('theme');
 
-    if (savedTheme === "dark") {
+    if (savedTheme === 'dark') {
       setDarkMode(true);
-    } else if (savedTheme === "light") {
+    } else if (savedTheme === 'light') {
       setDarkMode(false);
     }
   }, []);
@@ -43,26 +49,26 @@ function Navbar() {
   };
 
   const isActive = (path: string) => {
-    if (path === "/") {
-      return location.pathname === "/";
+    if (path === '/') {
+      return location.pathname === '/';
     }
 
     return location.pathname.startsWith(path);
   };
 
   const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "About AI", path: "/about" },
-    { name: "Prevention", path: "/prevention" },
-    { name: "Contact", path: "/contact" },
+    { name: 'Home', path: '/' },
+    { name: 'About AI', path: '/about' },
+    { name: 'Prevention', path: '/prevention' },
+    { name: 'Contact', path: '/contact' },
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-md">
+    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-md transition-colors duration-300">
       <nav className="mx-auto flex h-20 w-[92%] max-w-350 items-center justify-between">
         {/* Logo */}
         <button
-          onClick={() => handleNavigation("/")}
+          onClick={() => handleNavigation('/')}
           className="flex items-center"
           aria-label="CardioPredict-AI Home"
         >
@@ -82,28 +88,33 @@ function Navbar() {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`relative px-4 py-3 text-sm font-medium transition-colors ${
+                className={`group relative px-4 py-3 text-sm font-medium transition-colors hover:text-[#8B1E24] dark:hover:text-[#ef4444] hover:[text-shadow:0_0_12px_rgba(139,30,36,0.8)] dark:hover:[text-shadow:0_0_12px_rgba(239,68,68,0.8)] ${
                   active
-                    ? "text-primary"
-                    : "text-text-secondary hover:text-primary"
+                    ? 'text-[#8B1E24] dark:text-[#ef4444] [text-shadow:0_0_12px_rgba(139,30,36,0.8)] dark:[text-shadow:0_0_12px_rgba(239,68,68,0.8)]'
+                    : 'text-text-secondary'
                 }`}
               >
                 {link.name}
 
-                {active && (
-                  <span className="absolute bottom-1 left-4 right-4 h-0.5 rounded-full bg-primary" />
-                )}
+                {/* Animated Colored Underline & Glow */}
+                <span
+                  className={`absolute bottom-1 left-4 right-4 h-0.5 rounded-full bg-[#8B1E24] dark:bg-[#ef4444] shadow-[0_0_10px_#8B1E24] dark:shadow-[0_0_10px_#ef4444] transition-all duration-300 ${
+                    active
+                      ? 'opacity-100 scale-x-100'
+                      : 'opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100'
+                  }`}
+                />
               </Link>
             );
           })}
 
           {/* Sign In */}
           <button
-            onClick={() => handleNavigation("/login")}
-            className={`ml-2 rounded-lg border border-transparent px-4 py-2.5 text-sm font-medium text-primary transition-all hover:border-primary-hover hover:text-primary ${
-              location.pathname === "/login"
-                ? "border-primary-hover"
-                : ""
+            onClick={() => handleNavigation('/login')}
+            className={`ml-2 rounded-lg border border-transparent px-4 py-2.5 text-sm font-medium text-[#8B1E24] dark:text-[#ef4444] transition-all hover:border-primary-hover hover:[text-shadow:0_0_12px_rgba(139,30,36,0.8)] dark:hover:[text-shadow:0_0_12px_rgba(239,68,68,0.8)] ${
+              location.pathname === '/login'
+                ? 'border-primary-hover [text-shadow:0_0_12px_rgba(139,30,36,0.8)] dark:[text-shadow:0_0_12px_rgba(239,68,68,0.8)]'
+                : ''
             }`}
           >
             Sign In
@@ -111,16 +122,16 @@ function Navbar() {
 
           {/* Create Account */}
           <button
-            onClick={() => handleNavigation("/register")}
-            className="rounded-lg border border-transparent px-4 py-2.5 text-sm font-semibold text-primary transition-all hover:border-primary-hover hover:text-primary"
+            onClick={() => handleNavigation('/register')}
+            className="rounded-lg border border-transparent px-4 py-2.5 text-sm font-semibold text-[#8B1E24] dark:text-[#ef4444] transition-all hover:border-primary-hover hover:[text-shadow:0_0_12px_rgba(139,30,36,0.8)] dark:hover:[text-shadow:0_0_12px_rgba(239,68,68,0.8)]"
           >
             Sign Up
           </button>
 
           {/* Predict Now */}
           <button
-            onClick={() => handleNavigation("/login")}
-            className="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-primary-hover hover:shadow-lg"
+            onClick={() => handleNavigation('/login')}
+            className="rounded-lg bg-[#8B1E24] dark:bg-[#8B1E24] text-white px-5 py-2.5 text-sm font-semibold transition-all hover:bg-[#72171D] dark:hover:bg-[#72171D] hover:shadow-[0_0_15px_rgba(139,30,36,0.6)]"
           >
             Predict Now
           </button>
@@ -128,12 +139,12 @@ function Navbar() {
           {/* Theme Toggle */}
           <button
             onClick={() => setDarkMode((previous) => !previous)}
-            className="ml-2 flex h-10 w-10 items-center justify-center rounded-full border border-border bg-surface text-lg transition-all hover:border-primary"
+            className="ml-2 flex h-10 w-10 items-center justify-center rounded-full border border-border bg-surface text-lg transition-all hover:border-[#8B1E24] dark:hover:border-[#ef4444] hover:shadow-[0_0_10px_rgba(139,30,36,0.5)] dark:hover:shadow-[0_0_10px_rgba(239,68,68,0.5)]"
             aria-label={
-              darkMode ? "Switch to light mode" : "Switch to dark mode"
+              darkMode ? 'Switch to light mode' : 'Switch to dark mode'
             }
           >
-            {darkMode ? "☀️" : "☾"}
+            {darkMode ? '☀️' : '☾'}
           </button>
         </div>
 
@@ -144,10 +155,10 @@ function Navbar() {
             onClick={() => setDarkMode((previous) => !previous)}
             className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-surface text-lg"
             aria-label={
-              darkMode ? "Switch to light mode" : "Switch to dark mode"
+              darkMode ? 'Switch to light mode' : 'Switch to dark mode'
             }
           >
-            {darkMode ? "☀️" : "☾"}
+            {darkMode ? '☀️' : '☾'}
           </button>
 
           {/* Hamburger */}
@@ -157,7 +168,7 @@ function Navbar() {
             aria-label="Toggle navigation menu"
             aria-expanded={menuOpen}
           >
-            {menuOpen ? "✕" : "☰"}
+            {menuOpen ? '✕' : '☰'}
           </button>
         </div>
       </nav>
@@ -176,8 +187,8 @@ function Navbar() {
                   onClick={() => setMenuOpen(false)}
                   className={`rounded-lg px-4 py-3 text-sm font-medium transition-colors ${
                     active
-                      ? "bg-primary/10 text-primary"
-                      : "text-text-secondary hover:bg-surface hover:text-primary"
+                      ? 'bg-primary/10 text-[#8B1E24] dark:text-[#ef4444]'
+                      : 'text-text-secondary hover:bg-surface hover:text-[#8B1E24] dark:hover:text-[#ef4444]'
                   }`}
                 >
                   {link.name}
@@ -187,24 +198,24 @@ function Navbar() {
 
             {/* Mobile Sign In */}
             <button
-              onClick={() => handleNavigation("/login")}
-              className="mt-2 rounded-lg border border-transparent px-4 py-3 text-left text-sm font-medium text-primary transition-all hover:border-primary-hover hover:text-primary"
+              onClick={() => handleNavigation('/login')}
+              className="mt-2 rounded-lg border border-transparent px-4 py-3 text-left text-sm font-medium text-[#8B1E24] dark:text-[#ef4444] transition-all hover:border-primary-hover"
             >
               Sign In
             </button>
 
             {/* Mobile Sign Up */}
             <button
-              onClick={() => handleNavigation("/register")}
-              className="mt-1 rounded-lg border border-transparent px-4 py-3 text-left text-sm font-semibold text-primary transition-all hover:border-primary-hover hover:text-primary"
+              onClick={() => handleNavigation('/register')}
+              className="mt-1 rounded-lg border border-transparent px-4 py-3 text-left text-sm font-semibold text-[#8B1E24] dark:text-[#ef4444] transition-all hover:border-primary-hover"
             >
               Sign Up
             </button>
 
             {/* Mobile Predict */}
             <button
-              onClick={() => handleNavigation("/login")}
-              className="mt-3 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary-hover"
+              onClick={() => handleNavigation('/login')}
+              className="mt-3 rounded-lg bg-[#8B1E24] dark:bg-[#8B1E24] text-white px-5 py-3 text-sm font-semibold transition hover:bg-[#72171D] dark:hover:bg-[#72171D]"
             >
               Predict Now
             </button>

@@ -4,7 +4,7 @@ import DashboardSideNav from "./DashboardSideNav";
 
 function DashboardLayout() {
   return (
-    <div className="min-h-screen bg-background text-text-primary">
+    <div className="min-h-screen bg-background text-text-primary transition-colors duration-300">
       <DashboardHeader />
 
       <div className="flex pt-20">
